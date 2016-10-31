@@ -11,6 +11,11 @@
     "start": "brunch watch -s -n"
   },
   "dependencies": {
+    "convexhull-js": "^1.0.0",
+    "hex-and-rgba": "^1.1.0",
+    "point-in-polygon": "^1.0.1",
+    "polygon": "^1.0.2",
+    "polygon.clip": "^0.0.3",
     "simplify-js": "^1.2.1"
   },
   "devDependencies": {
