@@ -1,6 +1,7 @@
 import simplifyjs from 'simplify-js'
 import convex from 'convexhull-js'
 import {hexToRgba} from 'hex-and-rgba'
+import turf from '@turf/turf'
 
 export const DRAW_TOOL = 'draw'
 export const ERASE_TOOL = 'erase'
@@ -10,22 +11,32 @@ const container = document.getElementById('map-container')
 const box = container.getBoundingClientRect()
 const context = canvas.getContext('2d')
 let points = []
-const polygons = []
-const mapPolygons = []
+let features = []
+let gaps = []
 
-function makeMapPolygon({map, polygon, color}) {
+function setCanvasHeight() {
+  canvas.setAttribute('width', box.width)
+  canvas.setAttribute('height', box.height)
+}
+window.addEventListener('resize', setCanvasHeight)
+setCanvasHeight()
+
+function makeFeature({map, polygon, color}) {
+  window.map = map
+  const google = window.google
   const coordinates = polygon.map(point => {
     return pixelToCoordinate(point, map)
-  })
-  const mapPolygon = new google.maps.Polygon({
-    paths: coordinates,
-    strokeColor: color,
-    strokeWeight: 2,
-    fillColor: color,
-    fillOpacity: 0.4
-  })
-  mapPolygon.setMap(map)
-  return mapPolygon
+  }).map(point => [
+    point.lng(),
+    point.lat()
+  ])
+  coordinates.push(coordinates[0])
+  const feature = turf.polygon([coordinates])
+  return feature
+}
+
+function plot() {
+    map.data.addGeoJson(turf.featureCollection(features), ...gaps)
 }
 
 const tools = {}
@@ -33,47 +44,48 @@ const tools = {}
 tools[DRAW_TOOL] = {
   color: '#ff2a50',
   up({polygon, map}) {
-    const mapPolygon = makeMapPolygon({
-      map, polygon, color: this.color
-    })
-    polygons.push(polygon)
-    mapPolygons.push(mapPolygon)
+  const feature = makeFeature({
+    map, polygon
+  })
+  map.data.forEach(livingFeature => {
+    map.data.remove(livingFeature)
+  })
+  const unions = []
+  features.forEach((livingFeature, index) => {
+    const intersect = turf.intersect(feature, livingFeature)
+    if (intersect) {
+      delete features[index]
+      unions[index] = turf.union(livingFeature, feature)
+    }
+  })
+  if (unions.length) {
+    features.push(unions.reduce((a, b) => turf.union(a, b)))
+  } else {
+    features.push(feature)
+  }
+  features = features.filter(feature => feature)
+  plot()
   }
 }
 
 tools[ERASE_TOOL] = {
   color: '#3399ff',
   up({polygon, map}) {
-    polygons.forEach((livePolygon, index) => {
-      polygons[index] = livePolygon.union(new Polygon(polygon))
-      console.log(livePolygon.cut(new Polygon(polygon)))
-      const newPolygon = polygons[index]
-      const coordinates = newPolygon.points.map(point => {
-        return pixelToCoordinate(point, map)
-      })
-      console.log(window.coordinates = coordinates)
-      console.log(newPolygon)
-      const mapPolygon = new google.maps.Polygon({
-        paths: coordinates,
-        strokeColor: this.color,
-        strokeWeight: 2,
-        fillColor: this.color,
-        fillOpacity: 0.4
-      })
-      mapPolygon.setMap(map)
+    const gap = makeFeature({
+      map, polygon
     })
+    map.data.forEach(livingFeature => {
+      map.data.remove(livingFeature)
+    })
+    const unions = []
+    features.forEach((feature, index) => {
+      const intersect = turf.intersect(gap, feature)
+      if (intersect) {
+        features[index] = turf.difference(feature, gap)
+      }
+    })
+    plot()
   }
-}
-
-canvas.setAttribute('width', box.width)
-canvas.setAttribute('height', box.height)
-
-function max(array) {
-  return array.reduce((a, b) => Math.max(a, b))
-}
-
-function min(array) {
-  return array.reduce((a, b) => Math.min(a, b))
 }
 
 function simplify(points) {
@@ -117,6 +129,13 @@ document.addEventListener('mapready', event => {
   const google = window.google
   const map = event.detail
   let painting = false
+
+  map.data.setStyle({
+    strokeColor: '#ff2a50',
+    strokeWeight: 2,
+    fillColor: '#ff2a50',
+    fillOpacity: 0.4
+  })
 
   function down(event) {
     const tool = tools[canvas.getAttribute('data-tool')]
