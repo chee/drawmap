@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width" />
+<style>
+#map-container {
+  height: 400px;
+  width: 100%;
+}
+#draw,
+#map {
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#draw {
+  cursor: url('/pencil.cur');
+  z-index: 1000;
+}
+.pointer-events--none {
+  pointer-events: none;
+}
+
+.selected {
+  background: #ff2a55;
+  color: white;
+}
+</style>
+<div id="map-container">
+  <canvas id="draw" class="pointer-events--none"></canvas>
+  <div id="map"></div>
+</div>
+<button id="draw-button" class="button">draw</button>
+<button id="move-button" class="button selected">move</move>
+<script src="/vendor.js"></script>
+<script src="/app.js"></script>
+<script>require('index');</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS_It3WtDlc7glGckIjsn4CCG3PzqI4-8&callback=initMap"></script>
