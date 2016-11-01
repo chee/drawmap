@@ -1,10 +1,7 @@
 import simplifyjs from 'simplify-js'
 import {
   convexHull,
-  isScribble,
-  removeInner,
-  sortPoints,
-  biggest
+  sortPoints
 } from './shape'
 import {hexToRgba} from 'hex-and-rgba'
 import {
