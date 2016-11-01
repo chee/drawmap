@@ -54,7 +54,7 @@ function clear(map) {
 const identity = thing => thing
 
 function plot() {
-    map.data.addGeoJson(featureCollection(features), ...gaps)
+  map.data.addGeoJson(featureCollection(features), ...gaps)
 }
 
 function redrawMap(map) {
@@ -103,10 +103,7 @@ tools[ERASE_TOOL] = {
 }
 
 function addPoint(x, y) {
-  points.push({
-    x,
-    y
-  })
+  points.push({x, y})
 }
 
 function redraw({color}) {
@@ -115,7 +112,7 @@ function redraw({color}) {
   context.strokeStyle = color
   context.fillStyle = `rgba(${r}, ${g}, ${b}, ${a})`
   context.lineJoin = 'round'
-  context.lineWidth = 7
+  context.lineWidth = 10
   context.beginPath()
   context.moveTo(points[0] && points[0].x, points[0] && points[0].y)
   for (let index = 1; index < points.length; index += 1) {
@@ -123,7 +120,7 @@ function redraw({color}) {
   }
   context.stroke()
   context.closePath()
-  context.fill()
+  // context.fill()
 }
 
 function pixelToCoordinate(point, map) {
@@ -158,8 +155,6 @@ document.addEventListener('mapready', event => {
     redraw(tool)
   }
 
-
-
   function move(event) {
     event.preventDefault()
     const tool = tools[canvas.getAttribute('data-tool')]
@@ -182,8 +177,8 @@ document.addEventListener('mapready', event => {
     painting = false
     moving = false
     if (!points.length) return
-    const polygon = simplify(points)
-
+    const polygon = simplify(points, canvas)
+    console.log(polygon.length)
     if (polygon.length > 3) {
       tool.up({polygon, map})
     }

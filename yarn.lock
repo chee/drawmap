@@ -3124,6 +3124,10 @@ ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
 
+msqr:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/msqr/-/msqr-0.2.1.tgz#efc617cd8c047e1b8500f29444f245c5c4a5bd44"
+
 mute-stream@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.5.tgz#8fbfabb0a98a253d3184331f9e8deb7372fac6c0"

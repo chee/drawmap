@@ -1,6 +1,6 @@
 import Polygon from 'polygon'
 import simplifyjs from 'simplify-js'
-import Delaunay from 'delaunay'
+import { MSQR } from 'msqr'
 
 export function sortPoints(points) {
   return points.sort((a, b) => (
@@ -41,7 +41,7 @@ export function expand(points) {
   return polygon.scale(1.2, center, true).points
 }
 
-export function simplify(points) {
+export function simplify(points, canvas) {
   const simplePoints = simplifyjs(points, 4, true)
   const polygons = new Polygon(simplePoints).pruneSelfIntersections()
   const hull = expand(convexHull(simplePoints))
@@ -49,6 +49,10 @@ export function simplify(points) {
   if (polygons.length > 1) {
     return hull
   } else {
-    return polygons[0].points
+    const p = MSQR(canvas, {
+      tolerance: 1.1
+    })
+    console.log(p)
+    return p[0]
   }
 }

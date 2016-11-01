@@ -16,6 +16,7 @@
     "delaunay": "^0.4.0",
     "eslint": "^3.9.1",
     "hex-and-rgba": "^1.1.0",
+    "msqr": "^0.2.1",
     "point-in-polygon": "^1.0.1",
     "polygon": "^1.0.2",
     "simplify-js": "^1.2.1"
