@@ -96,7 +96,7 @@ tools[ERASE_TOOL] = {
 
 function simplify(points) {
   const simplePoints = simplifyjs(points, 4, true)
-  return convex(points)
+  return convex(simplePoints)
 }
 
 function addPoint(x, y) {
