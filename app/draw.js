@@ -1,20 +1,32 @@
 import simplifyjs from 'simplify-js'
-import convex from 'convexhull-js'
+import {
+  convexHull,
+  isScribble,
+  removeInner,
+  sortPoints,
+  biggest
+} from './shape'
 import {hexToRgba} from 'hex-and-rgba'
-import turf from '@turf/turf'
+import {
+  polygon as turfPolygon,
+  featureCollection,
+  intersect,
+  union,
+  difference
+} from '@turf/turf'
 
 export const DRAW_TOOL = 'draw'
 export const ERASE_TOOL = 'erase'
 
 const canvas = document.getElementById('draw')
 const container = document.getElementById('map-container')
-const box = container.getBoundingClientRect()
 const context = canvas.getContext('2d')
 let points = []
 let features = []
 let gaps = []
 
 function setCanvasHeight() {
+  const box = container.getBoundingClientRect()
   canvas.setAttribute('width', box.width)
   canvas.setAttribute('height', box.height)
 }
@@ -31,8 +43,7 @@ function makeFeature({map, polygon, color}) {
     point.lat()
   ])
   coordinates.push(coordinates[0])
-  const feature = turf.polygon([coordinates])
-  return feature
+  return turfPolygon([coordinates])
 }
 
 function clear(map) {
@@ -44,7 +55,7 @@ function clear(map) {
 const identity = thing => thing
 
 function plot() {
-    map.data.addGeoJson(turf.featureCollection(features), ...gaps)
+    map.data.addGeoJson(featureCollection(features), ...gaps)
 }
 
 function redrawMap(map) {
@@ -63,14 +74,13 @@ tools[DRAW_TOOL] = {
   })
   const unions = []
   features.forEach((livingFeature, index) => {
-    const intersect = turf.intersect(feature, livingFeature)
-    if (intersect) {
+    if (intersect(feature, livingFeature)) {
       delete features[index]
-      unions[index] = turf.union(livingFeature, feature)
+      unions[index] = union(livingFeature, feature)
     }
   })
   if (unions.length) {
-    features.push(unions.reduce((a, b) => turf.union(a, b)))
+    features.push(unions.reduce((a, b) => union(a, b)))
   } else {
     features.push(feature)
   }
@@ -85,9 +95,8 @@ tools[ERASE_TOOL] = {
       map, polygon
     })
     features.forEach((feature, index) => {
-      const intersect = turf.intersect(gap, feature)
-      if (intersect) {
-        features[index] = turf.difference(feature, gap)
+      if (intersect(gap, feature)) {
+        features[index] = difference(feature, gap)
       }
     })
     redrawMap(map)
@@ -96,7 +105,8 @@ tools[ERASE_TOOL] = {
 
 function simplify(points) {
   const simplePoints = simplifyjs(points, 4, true)
-  return convex(simplePoints)
+  const polygons = new Polygon(points).pruneSelfIntersections()
+  return polygons.length > 1 ? convexHull(points) : polygons[0].points
 }
 
 function addPoint(x, y) {
@@ -112,14 +122,14 @@ function redraw({color}) {
   context.strokeStyle = color
   context.fillStyle = `rgba(${r}, ${g}, ${b}, ${a})`
   context.lineJoin = 'round'
-  context.lineWidth = 10
+  context.lineWidth = 7
   context.beginPath()
   context.moveTo(points[0] && points[0].x, points[0] && points[0].y)
   for (let index = 1; index < points.length; index += 1) {
     context.lineTo(points[index].x, points[index].y)
   }
-  context.closePath()
   context.stroke()
+  context.closePath()
   context.fill()
 }
 
@@ -135,6 +145,7 @@ document.addEventListener('mapready', event => {
   const google = window.google
   const map = event.detail
   let painting = false
+  let moving = false
 
   map.data.setStyle({
     strokeColor: '#ff2a50',
@@ -153,8 +164,10 @@ document.addEventListener('mapready', event => {
   }
 
   function up(event) {
+    if (!moving) return
     const tool = tools[canvas.getAttribute('data-tool')]
     painting = false
+    moving = false
     if (!points.length) return
     const polygon = simplify(points)
     tool.up({polygon, map})
@@ -169,6 +182,7 @@ document.addEventListener('mapready', event => {
     const y = event.offsetY || (event.touches && event.touches[0].pageY)
     const x = event.offsetX || (event.touches && event.touches[0].pageX)
     if (painting && x && y) {
+      moving = true
       addPoint(x, y)
       redraw(tool)
     }

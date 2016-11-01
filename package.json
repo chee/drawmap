@@ -13,6 +13,8 @@
   "dependencies": {
     "@turf/turf": "^3.5.2",
     "convexhull-js": "^1.0.0",
+    "delaunay": "^0.4.0",
+    "eslint": "^3.9.1",
     "hex-and-rgba": "^1.1.0",
     "point-in-polygon": "^1.0.1",
     "polygon": "^1.0.2",
