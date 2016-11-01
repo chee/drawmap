@@ -101,12 +101,12 @@ function addPoint(x, y) {
 }
 
 function redraw({color}) {
-  const [r, g, b, a] = hexToRgba(`${color}66`)
+  const [r, g, b, a] = hexToRgba(`${color}33`)
   context.clearRect(0, 0, canvas.width, canvas.height)
   context.strokeStyle = color
   context.fillStyle = `rgba(${r}, ${g}, ${b}, ${a})`
   context.lineJoin = 'round'
-  context.lineWidth = 5
+  context.lineWidth = 10
   context.beginPath()
   context.moveTo(points[0] && points[0].x, points[0] && points[0].y)
   for (let index = 1; index < points.length; index += 1) {
@@ -159,9 +159,10 @@ document.addEventListener('mapready', event => {
   function move(event) {
     event.preventDefault()
     const tool = tools[canvas.getAttribute('data-tool')]
-    const x = event.offsetX || event.touches[0].pageX
-    const y = event.offsetY || event.touches[0].pageY
-    if (painting) {
+
+    const y = event.offsetY || (event.touches && event.touches[0].pageY)
+    const x = event.offsetX || (event.touches && event.touches[0].pageX)
+    if (painting && x && y) {
       addPoint(x, y)
       redraw(tool)
     }
