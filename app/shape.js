@@ -1,5 +1,5 @@
 import Polygon from 'polygon'
-import simplify from 'simplify-js'
+import simplifyjs from 'simplify-js'
 import Delaunay from 'delaunay'
 
 export function sortPoints(points) {
@@ -31,4 +31,24 @@ export function convexHull(points) {
   hull.pop()
 
   return hull
+}
+
+export function expand(points) {
+  const polygon = new Polygon(points)
+  const center = polygon.center()
+  const area = polygon.area()
+  const aabb = polygon.aabb()
+  return polygon.scale(1.2, center, true).points
+}
+
+export function simplify(points) {
+  const simplePoints = simplifyjs(points, 4, true)
+  const polygons = new Polygon(simplePoints).pruneSelfIntersections()
+  const hull = expand(convexHull(simplePoints))
+  const polygon = new Polygon(simplePoints)
+  if (polygons.length > 1) {
+    return hull
+  } else {
+    return polygons[0].points
+  }
 }

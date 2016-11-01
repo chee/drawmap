@@ -1,7 +1,8 @@
-import simplifyjs from 'simplify-js'
 import {
   convexHull,
-  sortPoints
+  sortPoints,
+  expand,
+  simplify
 } from './shape'
 import {hexToRgba} from 'hex-and-rgba'
 import {
@@ -11,6 +12,7 @@ import {
   union,
   difference
 } from '@turf/turf'
+import Polygon from 'polygon'
 
 export const DRAW_TOOL = 'draw'
 export const ERASE_TOOL = 'erase'
@@ -100,12 +102,6 @@ tools[ERASE_TOOL] = {
   }
 }
 
-function simplify(points) {
-  const simplePoints = simplifyjs(points, 4, true)
-  const polygons = new Polygon(points).pruneSelfIntersections()
-  return polygons.length > 1 ? convexHull(points) : polygons[0].points
-}
-
 function addPoint(x, y) {
   points.push({
     x,
@@ -135,6 +131,7 @@ function pixelToCoordinate(point, map) {
   const bottomLeft = map.getProjection().fromLatLngToPoint(map.getBounds().getSouthWest())
   const scale = Math.pow(2, map.zoom)
   const worldPoint = new google.maps.Point(point.x / scale + bottomLeft.x, point.y / scale + topRight.y)
+  console.log(worldPoint)
   return map.getProjection().fromPointToLatLng(worldPoint)
 }
 
@@ -153,6 +150,7 @@ document.addEventListener('mapready', event => {
 
   function down(event) {
     const tool = tools[canvas.getAttribute('data-tool')]
+    moving = false
     painting = true
     const x = event.offsetX || event.touches[0].pageX
     const y = event.offsetY || event.touches[0].pageY
@@ -160,22 +158,11 @@ document.addEventListener('mapready', event => {
     redraw(tool)
   }
 
-  function up(event) {
-    if (!moving) return
-    const tool = tools[canvas.getAttribute('data-tool')]
-    painting = false
-    moving = false
-    if (!points.length) return
-    const polygon = simplify(points)
-    tool.up({polygon, map})
-    points = []
-    redraw(tool)
-  }
+
 
   function move(event) {
     event.preventDefault()
     const tool = tools[canvas.getAttribute('data-tool')]
-
     const y = event.offsetY || (event.touches && event.touches[0].pageY)
     const x = event.offsetX || (event.touches && event.touches[0].pageX)
     if (painting && x && y) {
@@ -183,6 +170,25 @@ document.addEventListener('mapready', event => {
       addPoint(x, y)
       redraw(tool)
     }
+  }
+
+  function up(event) {
+    if (!moving) {
+      points.pop()
+      painting = false
+      return
+    }
+    const tool = tools[canvas.getAttribute('data-tool')]
+    painting = false
+    moving = false
+    if (!points.length) return
+    const polygon = simplify(points)
+
+    if (polygon.length > 3) {
+      tool.up({polygon, map})
+    }
+    points = []
+    redraw(tool)
   }
 
   canvas.addEventListener('mousedown', down)
