@@ -35,8 +35,22 @@ function makeFeature({map, polygon, color}) {
   return feature
 }
 
+function clear(map) {
+  map.data.forEach(livingFeature => {
+    map.data.remove(livingFeature)
+  })
+}
+
+const identity = thing => thing
+
 function plot() {
     map.data.addGeoJson(turf.featureCollection(features), ...gaps)
+}
+
+function redrawMap(map) {
+  clear(map)
+  features = features.filter(identity)
+  plot()
 }
 
 const tools = {}
@@ -46,9 +60,6 @@ tools[DRAW_TOOL] = {
   up({polygon, map}) {
   const feature = makeFeature({
     map, polygon
-  })
-  map.data.forEach(livingFeature => {
-    map.data.remove(livingFeature)
   })
   const unions = []
   features.forEach((livingFeature, index) => {
@@ -63,8 +74,7 @@ tools[DRAW_TOOL] = {
   } else {
     features.push(feature)
   }
-  features = features.filter(feature => feature)
-  plot()
+  redrawMap(map)
   }
 }
 
@@ -74,17 +84,13 @@ tools[ERASE_TOOL] = {
     const gap = makeFeature({
       map, polygon
     })
-    map.data.forEach(livingFeature => {
-      map.data.remove(livingFeature)
-    })
-    const unions = []
     features.forEach((feature, index) => {
       const intersect = turf.intersect(gap, feature)
       if (intersect) {
         features[index] = turf.difference(feature, gap)
       }
     })
-    plot()
+    redrawMap(map)
   }
 }
 
