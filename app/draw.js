@@ -4,7 +4,6 @@ import {
   expand,
   simplify
 } from './shape'
-import {hexToRgba} from 'hex-and-rgba'
 import {
   polygon as turfPolygon,
   featureCollection,
@@ -33,8 +32,6 @@ window.addEventListener('resize', setCanvasHeight)
 setCanvasHeight()
 
 function makeFeature({map, polygon, color}) {
-  window.map = map
-  const google = window.google
   const coordinates = polygon.map(point => {
     return pixelToCoordinate(point, map)
   }).map(point => [
@@ -53,14 +50,14 @@ function clear(map) {
 
 const identity = thing => thing
 
-function plot() {
+function plot(map) {
   map.data.addGeoJson(featureCollection(features), ...gaps)
 }
 
 function redrawMap(map) {
   clear(map)
   features = features.filter(identity)
-  plot()
+  plot(map)
 }
 
 const tools = {}
@@ -68,7 +65,7 @@ const tools = {}
 tools[DRAW_TOOL] = {
   color: '#ff2a50',
   up({polygon, map}) {
-  const feature = makeFeature({
+  let feature = makeFeature({
     map, polygon
   })
   const unions = []
@@ -79,10 +76,13 @@ tools[DRAW_TOOL] = {
     }
   })
   if (unions.length) {
-    features.push(unions.reduce((a, b) => union(a, b)))
-  } else {
-    features.push(feature)
+    feature = unions.reduce((a, b) => union(a, b))
+    let coordinates = feature.geometry.coordinates.slice(0, -1).map(coordinates => (
+      coordinates.map(coordinate => coordinateToPixel(coordinate, map))
+    )).reduce((a, b) => a.concat(b), [])
+    feature = makeFeature({map, polygon: coordinates, color: '#ff2a50'})
   }
+  features.push(feature)
   redrawMap(map)
   }
 }
@@ -106,34 +106,52 @@ function addPoint(x, y) {
   points.push({x, y})
 }
 
-function redraw({color}) {
-  const [r, g, b, a] = hexToRgba(`${color}33`)
-  context.clearRect(0, 0, canvas.width, canvas.height)
-  context.strokeStyle = color
-  context.fillStyle = `rgba(${r}, ${g}, ${b}, ${a})`
-  context.lineJoin = 'round'
-  context.lineWidth = 10
+export function drawline({color, width, display = true}) {
   context.beginPath()
+  context.clearRect(0, 0, canvas.width, canvas.height)
+  context.strokeStyle = color && display ? color : 'rgba(0,0,0,.01)'
+  context.lineJoin = 'round'
+  context.lineCap = 'round'
+  context.lineWidth = width
   context.moveTo(points[0] && points[0].x, points[0] && points[0].y)
   for (let index = 1; index < points.length; index += 1) {
-    context.lineTo(points[index].x, points[index].y)
+    context.lineTo(points[index].x - (display ? width / 2 : 0), points[index].y)
   }
   context.stroke()
-  context.closePath()
-  // context.fill()
+}
+
+function redraw({color}) {
+  drawline({
+    color,
+    width: 10,
+    points
+  })
 }
 
 function pixelToCoordinate(point, map) {
   const topRight = map.getProjection().fromLatLngToPoint(map.getBounds().getNorthEast())
   const bottomLeft = map.getProjection().fromLatLngToPoint(map.getBounds().getSouthWest())
   const scale = Math.pow(2, map.zoom)
-  const worldPoint = new google.maps.Point(point.x / scale + bottomLeft.x, point.y / scale + topRight.y)
-  console.log(worldPoint)
+  const worldPoint = new window.google.maps.Point(point.x / scale + bottomLeft.x, point.y / scale + topRight.y)
   return map.getProjection().fromPointToLatLng(worldPoint)
 }
 
+function coordinateToPixel(coordinate, map) {
+  const topRight = map.getProjection().fromLatLngToPoint(map.getBounds().getNorthEast())
+  const bottomLeft = map.getProjection().fromLatLngToPoint(map.getBounds().getSouthWest())
+  const scale = Math.pow(2, map.zoom)
+  const worldPoint = map.getProjection().fromLatLngToPoint({
+    lng() {
+      return coordinate[0]
+    },
+    lat() {
+      return coordinate[1]
+    }
+  })
+  return new window.google.maps.Point((worldPoint.x - bottomLeft.x) * scale, (worldPoint.y - topRight.y) * scale)
+}
+
 document.addEventListener('mapready', event => {
-  const google = window.google
   const map = event.detail
   let painting = false
   let moving = false
@@ -178,7 +196,6 @@ document.addEventListener('mapready', event => {
     moving = false
     if (!points.length) return
     const polygon = simplify(points, canvas)
-    console.log(polygon.length)
     if (polygon.length > 3) {
       tool.up({polygon, map})
     }

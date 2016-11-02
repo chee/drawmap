@@ -1,6 +1,7 @@
 import Polygon from 'polygon'
 import simplifyjs from 'simplify-js'
 import { MSQR } from 'msqr'
+import { drawline } from './draw'
 
 export function sortPoints(points) {
   return points.sort((a, b) => (
@@ -46,13 +47,15 @@ export function simplify(points, canvas) {
   const polygons = new Polygon(simplePoints).pruneSelfIntersections()
   const hull = expand(convexHull(simplePoints))
   const polygon = new Polygon(simplePoints)
-  if (polygons.length > 1) {
+  if (polygons.length > 2) {
     return hull
   } else {
-    const p = MSQR(canvas, {
-      tolerance: 1.1
+    drawline({
+      width: 20,
+      display: false
     })
-    console.log(p)
-    return p[0]
+    return MSQR(canvas, {
+      tolerance: 1.1
+    })[0]
   }
 }
