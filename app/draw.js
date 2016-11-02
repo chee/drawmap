@@ -74,7 +74,7 @@ tools[DRAW_TOOL] = {
       }
     })
     if (unions.length) {
-      const polygon = reduce(unions.reduce((a, b) => union(a, b)).geometry.coordinates.slice(0, -1).map(coordinates => (
+      const polygon = reduce(unions.reduce((a, b) => union(a, b)).geometry.coordinates.map(coordinates => (
         coordinates.map(coordinate => coordinateToPixel(coordinate, map))
       )))
       features.push(makeFeature({
