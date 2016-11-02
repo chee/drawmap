@@ -59,3 +59,13 @@ export function simplify(points, canvas) {
     })[0]
   }
 }
+
+export function reduce(polygons) {
+  return polygons
+    .map(polygon => new Polygon(polygon))
+    .reduce((previous, current) => (
+      previous.contains(current) || current.contains(current)
+      ? current.union(previous)
+      : current
+    ), new Polygon([])).points
+}

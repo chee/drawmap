@@ -1,8 +1,6 @@
 import {
-  convexHull,
-  sortPoints,
-  expand,
-  simplify
+  simplify,
+  reduce
 } from './shape'
 import {
   polygon as turfPolygon,
@@ -11,7 +9,6 @@ import {
   union,
   difference
 } from '@turf/turf'
-import Polygon from 'polygon'
 
 export const DRAW_TOOL = 'draw'
 export const ERASE_TOOL = 'erase'
@@ -31,7 +28,7 @@ function setCanvasHeight() {
 window.addEventListener('resize', setCanvasHeight)
 setCanvasHeight()
 
-function makeFeature({map, polygon, color}) {
+function makeFeature({map, polygon}) {
   const coordinates = polygon.map(point => {
     return pixelToCoordinate(point, map)
   }).map(point => [
@@ -39,6 +36,7 @@ function makeFeature({map, polygon, color}) {
     point.lat()
   ])
   coordinates.push(coordinates[0])
+  console.log(coordinates.length)
   return turfPolygon([coordinates])
 }
 
@@ -65,25 +63,28 @@ const tools = {}
 tools[DRAW_TOOL] = {
   color: '#ff2a50',
   up({polygon, map}) {
-  let feature = makeFeature({
-    map, polygon
-  })
-  const unions = []
-  features.forEach((livingFeature, index) => {
-    if (intersect(feature, livingFeature)) {
-      delete features[index]
-      unions[index] = union(livingFeature, feature)
+    const feature = makeFeature({
+      map, polygon
+    })
+    const unions = []
+    features.forEach((livingFeature, index) => {
+      if (intersect(feature, livingFeature)) {
+        delete features[index]
+        unions[index] = union(livingFeature, feature)
+      }
+    })
+    if (unions.length) {
+      const polygon = reduce(unions.reduce((a, b) => union(a, b)).geometry.coordinates.slice(0, -1).map(coordinates => (
+        coordinates.map(coordinate => coordinateToPixel(coordinate, map))
+      )))
+      features.push(makeFeature({
+        map,
+        polygon
+      }))
+    } else {
+      features.push(feature)
     }
-  })
-  if (unions.length) {
-    feature = unions.reduce((a, b) => union(a, b))
-    let coordinates = feature.geometry.coordinates.slice(0, -1).map(coordinates => (
-      coordinates.map(coordinate => coordinateToPixel(coordinate, map))
-    )).reduce((a, b) => a.concat(b), [])
-    feature = makeFeature({map, polygon: coordinates, color: '#ff2a50'})
-  }
-  features.push(feature)
-  redrawMap(map)
+    redrawMap(map)
   }
 }
 
