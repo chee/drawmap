@@ -20,7 +20,6 @@ const container = document.getElementById('map-container')
 const context = canvas.getContext('2d')
 let points = []
 let features = []
-let gaps = []
 
 function setCanvasHeight() {
   const box = container.getBoundingClientRect()
@@ -38,7 +37,12 @@ function makeFeature({map, polygon}) {
     point.lat()
   ])
   coordinates.push(coordinates[0])
-  return turfPolygon([coordinates])
+  try {
+    return turfPolygon([coordinates])
+  } catch(error) {
+    console.error(error)
+    return turfPolygon([])
+  }
 }
 
 function clear(map) {
@@ -50,7 +54,7 @@ function clear(map) {
 const identity = thing => thing
 
 function plot(map) {
-  map.data.addGeoJson(featureCollection(features), ...gaps)
+  map.data.addGeoJson(featureCollection(features))
 }
 
 function redrawMap(map) {
@@ -79,20 +83,21 @@ tools[DRAW_TOOL] = {
       const polygons = unions.reduce((a, b) => union(a, b)).geometry.coordinates.map(coordinates => (
         coordinates.map(coordinate => coordinateToPixel(coordinate, map))
       ))
-      features.push(makeFeature({
+      const unionFeature = makeFeature({
         map,
         polygon: polygons[0]
-      }))
-      const gaps = polygons.slice(1)
-      gaps.map(polygon => makeFeature({
+      })
+      features.push(unionFeature)
+      polygons.slice(1).map(polygon => makeFeature({
         map,
         polygon
       })).forEach(gap => {
-        if (intersect(gap, feature)) {
-
+        if (intersect(feature, gap)) {
+          gap = difference(feature, gap)
         } else {
-          erase(gap)
+
         }
+        (features[features.length - 1] = difference(unionFeature, gap))
       })
     } else {
       features.push(feature)

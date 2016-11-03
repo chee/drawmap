@@ -12,6 +12,9 @@
   },
   "dependencies": {
     "@turf/turf": "^3.5.2",
+    "@yr/catmull-rom-spline": "^1.0.3",
+    "cardinal-spline": "^0.0.1",
+    "cat-rom-spline": "^1.0.0",
     "eslint": "^3.9.1",
     "hex-rgba": "^1.0.0",
     "msqr": "^0.2.1",

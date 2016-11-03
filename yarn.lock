@@ -403,6 +403,10 @@
     "@turf/helpers" "^3.5.2"
     "@turf/inside" "^3.5.2"
 
+"@yr/catmull-rom-spline":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@yr/catmull-rom-spline/-/catmull-rom-spline-1.0.3.tgz#7e5ef132d2083b284686aacac2a80463e8d81ad2"
+
 "2d-polygon-area@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/2d-polygon-area/-/2d-polygon-area-1.0.0.tgz#2101b1f340116fda962c27656d2e49d261b4f4f8"
@@ -1486,9 +1490,19 @@ camelcase@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-3.0.0.tgz#32fc4b9fcdaf845fcdf7e73bb97cac2261f0ab0a"
 
+cardinal-spline:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/cardinal-spline/-/cardinal-spline-0.0.1.tgz#55066f224d5e441bf79b5a484bf6573941f141de"
+
 caseless@~0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.11.0.tgz#715b96ea9841593cc33067923f5ec60ebda4f7d7"
+
+cat-rom-spline:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/cat-rom-spline/-/cat-rom-spline-1.0.0.tgz#abfe389682f561f252fbdd04009d557fc2944047"
+  dependencies:
+    gl-vec2 "1.0.0"
 
 cbify@^1.0.0:
   version "1.0.0"
@@ -2407,6 +2421,10 @@ getpass@^0.1.1:
   resolved "https://registry.yarnpkg.com/getpass/-/getpass-0.1.6.tgz#283ffd9fc1256840875311c1b60e8c40187110e6"
   dependencies:
     assert-plus "^1.0.0"
+
+gl-vec2@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gl-vec2/-/gl-vec2-1.0.0.tgz#77fce6ae9612856d6c8b621cd261cd8281b9c637"
 
 glob-base@^0.3.0:
   version "0.3.0"
