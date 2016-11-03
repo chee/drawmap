@@ -42,7 +42,7 @@ export function expand(points) {
   return polygon.scale(1.2, center, true).points
 }
 
-export function simplify(points, canvas) {
+export function simplify(points, canvas, width) {
   const simplePoints = simplifyjs(points, 4, true)
   const polygons = new Polygon(simplePoints).pruneSelfIntersections()
   const hull = expand(convexHull(simplePoints))
@@ -51,7 +51,7 @@ export function simplify(points, canvas) {
     return hull
   } else {
     drawline({
-      width: 20,
+      width: width * 2,
       display: false
     })
     return MSQR(canvas, {

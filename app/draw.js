@@ -62,6 +62,7 @@ const tools = {}
 
 tools[DRAW_TOOL] = {
   color: '#ff2a50',
+  width: 10,
   up({polygon, map}) {
     const feature = makeFeature({
       map, polygon
@@ -74,13 +75,22 @@ tools[DRAW_TOOL] = {
       }
     })
     if (unions.length) {
-      const polygon = reduce(unions.reduce((a, b) => union(a, b)).geometry.coordinates.map(coordinates => (
+      const polygons = unions.reduce((a, b) => union(a, b)).geometry.coordinates.map(coordinates => (
         coordinates.map(coordinate => coordinateToPixel(coordinate, map))
-      )))
+      ))
       features.push(makeFeature({
         map,
-        polygon
+        polygon: polygons[0]
       }))
+      const gaps = polygons.slice(1)
+      gaps.map(polygon => makeFeature({
+        map,
+        polygon
+      })).forEach(gap => {
+        if (!intersect(gap, feature)) {
+          erase(gap)
+        }
+      })
     } else {
       features.push(feature)
     }
@@ -88,17 +98,22 @@ tools[DRAW_TOOL] = {
   }
 }
 
+function erase(gap) {
+  features.forEach((feature, index) => {
+    if (intersect(gap, feature)) {
+      features[index] = difference(feature, gap)
+    }
+  })
+}
+
 tools[ERASE_TOOL] = {
   color: '#3399ff',
+  width: 15,
   up({polygon, map}) {
     const gap = makeFeature({
       map, polygon
     })
-    features.forEach((feature, index) => {
-      if (intersect(gap, feature)) {
-        features[index] = difference(feature, gap)
-      }
-    })
+    erase(gap)
     redrawMap(map)
   }
 }
@@ -121,10 +136,10 @@ export function drawline({color, width, display = true}) {
   context.stroke()
 }
 
-function redraw({color}) {
+function redraw({color, width}) {
   drawline({
     color,
-    width: 10,
+    width,
     points
   })
 }
@@ -196,7 +211,7 @@ document.addEventListener('mapready', event => {
     painting = false
     moving = false
     if (!points.length) return
-    const polygon = simplify(points, canvas)
+    const polygon = simplify(points, canvas, tool.width)
     if (polygon.length > 3) {
       tool.up({polygon, map})
     }
