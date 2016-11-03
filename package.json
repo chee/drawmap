@@ -13,6 +13,7 @@
   "dependencies": {
     "@turf/turf": "^3.5.2",
     "eslint": "^3.9.1",
+    "hex-rgba": "^1.0.0",
     "msqr": "^0.2.1",
     "polygon": "^1.0.2",
     "simplify-js": "^1.2.1"

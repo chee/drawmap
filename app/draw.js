@@ -1,3 +1,5 @@
+import hexToRgba from 'hex-rgba'
+
 import {
   simplify,
   reduce
@@ -36,7 +38,6 @@ function makeFeature({map, polygon}) {
     point.lat()
   ])
   coordinates.push(coordinates[0])
-  console.log(coordinates.length)
   return turfPolygon([coordinates])
 }
 
@@ -62,7 +63,7 @@ const tools = {}
 
 tools[DRAW_TOOL] = {
   color: '#ff2a50',
-  width: 10,
+  width: 20,
   up({polygon, map}) {
     const feature = makeFeature({
       map, polygon
@@ -87,7 +88,9 @@ tools[DRAW_TOOL] = {
         map,
         polygon
       })).forEach(gap => {
-        if (!intersect(gap, feature)) {
+        if (intersect(gap, feature)) {
+
+        } else {
           erase(gap)
         }
       })
@@ -108,7 +111,7 @@ function erase(gap) {
 
 tools[ERASE_TOOL] = {
   color: '#3399ff',
-  width: 15,
+  width: 30,
   up({polygon, map}) {
     const gap = makeFeature({
       map, polygon
@@ -125,7 +128,7 @@ function addPoint(x, y) {
 export function drawline({color, width, display = true}) {
   context.beginPath()
   context.clearRect(0, 0, canvas.width, canvas.height)
-  context.strokeStyle = color && display ? color : 'rgba(0,0,0,.01)'
+  context.strokeStyle = color && display ? hexToRgba(color, 60) : 'rgba(0,0,0,.01)'
   context.lineJoin = 'round'
   context.lineCap = 'round'
   context.lineWidth = width

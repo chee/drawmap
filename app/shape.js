@@ -51,7 +51,7 @@ export function simplify(points, canvas, width) {
     return hull
   } else {
     drawline({
-      width: width * 2,
+      width,
       display: false
     })
     return MSQR(canvas, {
