@@ -135,23 +135,14 @@ function addPoint(x, y) {
 export function drawline({color, width, display = true}) {
   context.beginPath()
   context.clearRect(0, 0, canvas.width, canvas.height)
-  context.strokeStyle = color && display ? hexToRgba(color, 60) : 'rgba(0,0,0,.01)'
+  context.strokeStyle = color && display ? hexToRgba(color, 60) : 'rgba(0, 0, 0, .01)'
   context.lineJoin = 'round'
   context.lineCap = 'round'
   context.lineWidth = width
-  context.moveTo(points[0] && points[0].x, points[0] && points[0].y)
-  for (let index = 1; index < points.length; index += 1) {
+  for (let index = 0; index < points.length; index += 1) {
     context.lineTo(points[index].x - (display ? width / 2 : 0), points[index].y)
   }
   context.stroke()
-}
-
-function redraw({color, width}) {
-  drawline({
-    color,
-    width,
-    points
-  })
 }
 
 function pixelToCoordinate(point, map) {
@@ -175,6 +166,13 @@ function coordinateToPixel(coordinate, map) {
     }
   })
   return new window.google.maps.Point((worldPoint.x - bottomLeft.x) * scale, (worldPoint.y - topRight.y) * scale)
+}
+
+function redraw({color, width}) {
+  drawline({
+    color,
+    width
+  })
 }
 
 document.addEventListener('mapready', event => {

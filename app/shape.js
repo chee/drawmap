@@ -39,7 +39,7 @@ export function expand(points) {
   const center = polygon.center()
   const area = polygon.area()
   const aabb = polygon.aabb()
-  return polygon.scale(1.2, center, true).points
+  return polygon.scale(1.5, center, true).points
 }
 
 export function simplify(points, canvas, width) {
