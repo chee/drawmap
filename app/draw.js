@@ -20,6 +20,7 @@ const container = document.getElementById('map-container')
 const context = canvas.getContext('2d')
 let points = []
 let features = []
+let gaps = []
 
 function setCanvasHeight() {
   const box = container.getBoundingClientRect()
@@ -30,6 +31,7 @@ window.addEventListener('resize', setCanvasHeight)
 setCanvasHeight()
 
 function makeFeature({map, polygon}) {
+  if (!polygon.length) debugger
   const coordinates = polygon.map(point => {
     return pixelToCoordinate(point, map)
   }).map(point => [
@@ -88,16 +90,13 @@ tools[DRAW_TOOL] = {
         polygon: polygons[0]
       })
       features.push(unionFeature)
-      polygons.slice(1).map(polygon => makeFeature({
-        map,
-        polygon
-      })).forEach(gap => {
+      gaps.forEach((gap, index) => {
         if (intersect(feature, gap)) {
-          gap = difference(feature, gap)
+          gaps[index] = difference(gap, feature)
+          features[features.length - 1] = difference(features[features.length - 1], gaps[index])
         } else {
-
+          features[features.length - 1] = difference(features[features.length - 1], gap)
         }
-        (features[features.length - 1] = difference(unionFeature, gap))
       })
     } else {
       features.push(feature)
@@ -109,6 +108,8 @@ tools[DRAW_TOOL] = {
 function erase(gap) {
   features.forEach((feature, index) => {
     if (intersect(gap, feature)) {
+      gaps.push(gap)
+      gaps = gaps.filter(identity)
       features[index] = difference(feature, gap)
     }
   })
