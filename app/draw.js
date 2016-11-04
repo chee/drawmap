@@ -93,7 +93,8 @@ tools[DRAW_TOOL] = {
       gaps.forEach((gap, index) => {
         if (intersect(feature, gap)) {
           gaps[index] = difference(gap, feature)
-          features[features.length - 1] = difference(features[features.length - 1], gaps[index])
+          gaps[index] && (features[features.length - 1] = difference(features[features.length - 1], gaps[index]))
+          gaps = gaps.filter(identity)
         } else {
           features[features.length - 1] = difference(features[features.length - 1], gap)
         }
