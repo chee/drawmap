@@ -34,7 +34,7 @@ setCanvasHeight()
 
 function makePoint({map, point}) {
   let coordinate = pixelToCoordinate(point, map)
-  if (!coordinate) return
+  if (!coordinate) return null
   coordinate = [coordinate.lng(), coordinate.lat()]
   return turfPoint(coordinate)
 }
@@ -43,29 +43,34 @@ function makeFeature({map, polygon}) {
   if (!polygon.length) debugger
   const coordinates = polygon.map(point => {
     return pixelToCoordinate(point, map)
-  }).map(point => [
+  }).map(point => point && [
     point.lng(),
     point.lat()
-  ])
+  ]).filter(identity)
   coordinates.push(coordinates[0])
+  if (coordinates.length < 4) return null
   try {
     return turfPolygon([coordinates])
   } catch(error) {
     console.error(error)
-    return turfPolygon([])
+    return null
   }
 }
 
 function clear(map) {
-  map.data.forEach(livingFeature => {
-    map.data.remove(livingFeature)
+  map.data.forEach(feature => {
+    map.data.remove(feature)
   })
 }
 
 const identity = thing => thing
 
 function plot(map) {
-  map.data.addGeoJson(featureCollection(features))
+  try {
+    map.data.addGeoJson(featureCollection(features))
+  } catch(error) {
+    console.error('fuck: ', error)
+  }
 }
 
 function redrawMap(map) {
@@ -83,6 +88,7 @@ tools[DRAW_TOOL] = {
     const feature = makeFeature({
       map, polygon
     })
+    if (!feature) return
     const unions = []
     features.forEach((livingFeature, index) => {
       if (intersect(feature, livingFeature)) {
@@ -98,11 +104,16 @@ tools[DRAW_TOOL] = {
         map,
         polygon: polygons[0]
       })
+      if (!feature) return
       features.push(unionFeature)
       gaps.forEach((gap, index) => {
         if (intersect(feature, gap)) {
           gaps[index] = difference(gap, feature)
-          gaps[index] && (features[features.length - 1] = difference(features[features.length - 1], gaps[index]))
+          try {
+            gaps[index] && (features[features.length - 1] = difference(features[features.length - 1], gaps[index]))
+          } catch(error) {
+            console.error(error)
+          }
           gaps = gaps.filter(identity)
         } else {
           features[features.length - 1] = difference(features[features.length - 1], gap)
@@ -135,6 +146,7 @@ tools[ERASE_TOOL] = {
     const gap = makeFeature({
       map, polygon
     })
+    if (!gap) return
     erase(gap)
     redrawMap(map)
   },
@@ -250,13 +262,19 @@ document.addEventListener('mapready', event => {
     redraw(tool)
   }
 
+  function cancel() {
+    const tool = tools[canvas.getAttribute('data-tool')]
+    points = []
+    moving = painting = false
+    redraw(tool)
+  }
+
   canvas.addEventListener('mousedown', down)
   canvas.addEventListener('mouseup', up)
-  canvas.addEventListener('mouseleave', up)
+  canvas.addEventListener('mouseleave', cancel)
   canvas.addEventListener('mousemove', move )
 
   canvas.addEventListener('touchstart', down)
   canvas.addEventListener('touchend', up)
-  canvas.addEventListener('touchleave', up)
   canvas.addEventListener('touchmove', move)
 })
