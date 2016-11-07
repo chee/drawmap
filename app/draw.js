@@ -9,7 +9,9 @@ import {
   featureCollection,
   intersect,
   union,
-  difference
+  difference,
+  point as turfPoint,
+  inside
 } from '@turf/turf'
 
 export const DRAW_TOOL = 'draw'
@@ -29,6 +31,13 @@ function setCanvasHeight() {
 }
 window.addEventListener('resize', setCanvasHeight)
 setCanvasHeight()
+
+function makePoint({map, point}) {
+  let coordinate = pixelToCoordinate(point, map)
+  if (!coordinate) return
+  coordinate = [coordinate.lng(), coordinate.lat()]
+  return turfPoint(coordinate)
+}
 
 function makeFeature({map, polygon}) {
   if (!polygon.length) debugger
@@ -103,6 +112,9 @@ tools[DRAW_TOOL] = {
       features.push(feature)
     }
     redrawMap(map)
+  },
+  point({point, map}) {
+
   }
 }
 
@@ -125,6 +137,15 @@ tools[ERASE_TOOL] = {
     })
     erase(gap)
     redrawMap(map)
+  },
+  point({point, map}) {
+    point = makePoint({point, map})
+    features.forEach((feature, index) => {
+      if (inside(point, feature)) {
+        delete features[index]
+      }
+    })
+    redrawMap(map)
   }
 }
 
@@ -146,6 +167,7 @@ export function drawline({color, width, display = true}) {
 }
 
 function pixelToCoordinate(point, map) {
+  if (!(point && point.x && point.y)) return
   const topRight = map.getProjection().fromLatLngToPoint(map.getBounds().getNorthEast())
   const bottomLeft = map.getProjection().fromLatLngToPoint(map.getBounds().getSouthWest())
   const scale = Math.pow(2, map.zoom)
@@ -210,12 +232,13 @@ document.addEventListener('mapready', event => {
   }
 
   function up(event) {
-    if (!moving) {
-      points.pop()
-      painting = false
-      return
-    }
     const tool = tools[canvas.getAttribute('data-tool')]
+    if (!moving) {
+      const point = points.pop()
+      painting = false
+      tool.point({point, map})
+      return redraw(tool)
+    }
     painting = false
     moving = false
     if (!points.length) return
