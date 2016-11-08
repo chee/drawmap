@@ -90,6 +90,7 @@ tools[DRAW_TOOL] = {
     })
     if (!feature) return
     const unions = []
+    features = features.filter(identity)
     features.forEach((livingFeature, index) => {
       if (intersect(feature, livingFeature)) {
         delete features[index]
@@ -131,7 +132,9 @@ tools[DRAW_TOOL] = {
 
 function erase(gap) {
   features.forEach((feature, index) => {
-    if (intersect(gap, feature)) {
+    gap = intersect(gap, feature)
+    if (gap) {
+      // if this gap intersects with a feature, then add it to the gaps array
       gaps.push(gap)
       gaps = gaps.filter(identity)
       features[index] = difference(feature, gap)
