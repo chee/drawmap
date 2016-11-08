@@ -2,6 +2,7 @@ import Polygon from 'polygon'
 import simplifyjs from 'simplify-js'
 import { MSQR } from 'msqr'
 import { drawline } from './draw'
+import spline from 'cat-rom-spline'
 
 export function sortPoints(points) {
   return points.sort((a, b) => (
@@ -40,6 +41,10 @@ export function expand(points) {
   const area = polygon.area()
   const aabb = polygon.aabb()
   return polygon.scale(1.5, center, true).points
+}
+
+function vectorsToArrays(points) {
+  return points.map(({x, y}) => [x, y])
 }
 
 export function simplify(points, canvas, width) {

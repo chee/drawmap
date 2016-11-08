@@ -19,7 +19,8 @@
     "hex-rgba": "^1.0.0",
     "msqr": "^0.2.1",
     "polygon": "^1.0.2",
-    "simplify-js": "^1.2.1"
+    "simplify-js": "^1.2.1",
+    "turf-flatten": "^1.0.0"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.0.0",
