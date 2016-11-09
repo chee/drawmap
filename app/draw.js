@@ -2,16 +2,16 @@ import hexToRgba from 'hex-rgba'
 
 import {
   simplify,
+  within as polygonWithin,
   reduce as reducePolygons
 } from './shape'
 import {
+  point as turfPoint,
   polygon as turfPolygon,
   featureCollection,
   intersect,
   union,
-  difference,
-  point as turfPoint,
-  within
+  difference
 } from '@turf/turf'
 
 export const DRAW_TOOL = 'draw'
@@ -32,15 +32,7 @@ function setCanvasHeight() {
 window.addEventListener('resize', setCanvasHeight)
 setCanvasHeight()
 
-function makePoint({map, point}) {
-  let coordinate = pixelToCoordinate(point, map)
-  if (!coordinate) return null
-  coordinate = [coordinate.lng(), coordinate.lat()]
-  return turfPoint(coordinate)
-}
-
 function makeFeature({map, polygon}) {
-  if (!polygon.length) debugger
   const coordinates = polygon.map(point => {
     return pixelToCoordinate(point, map)
   }).map(point => point && [
@@ -73,28 +65,25 @@ function plot(map) {
   }
 }
 
-function containsAny(set1, set2) {
-  return set1.filter(item1 => {
-    let contains = false
-    set2.forEach(item2 => {
-      contains = contains || intersect(item1, item2) ? true : false
-    })
-    return contains
-  })
-}
-
 function redrawMap(map) {
   clear(map)
-  features = features.filter(identity).filter(feature => {
-    const contained = false
-    features.forEach(otherFeature => {
-      contained = contained || within(feature, otherFeature) ? true : false
+  features = features.filter(identity).filter(({ geometry: { coordinates: [ points ] } }) => {
+    let contained = false
+    features.forEach(feature => {
+      contained = contained || polygonWithin(points, feature.geometry.coordinates[0]) ? true : false
+      feature.geometry.coordinates.slice(1).forEach((gapPoints, index) => {
+        if (polygonWithin(points, gapPoints)) {
+          contained = false
+        }
+      })
+      // console.log(polygonWithin(points, featurePoints), points, featurePoints)
     })
     return !contained
   })
   gaps = gaps.filter(identity)
   //gaps = containsAny(gaps.filter(identity), features)
   plot(map)
+  document.dispatchEvent(new CustomEvent('search', { detail: map }))
 }
 
 const tools = {}
