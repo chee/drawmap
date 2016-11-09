@@ -65,6 +65,10 @@ export function simplify(points, canvas, width) {
   }
 }
 
+export function within(inner, outer) {
+  return new Polygon(outer).containsPolygon(new Polygon(inner))
+}
+
 export function reduce(polygons) {
   return polygons
     .map(polygon => new Polygon(polygon))
