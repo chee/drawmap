@@ -1,0 +1,2515 @@
+{
+  "markers": [
+    {
+      "AllowGrouping": false,
+      "MarkerType": "Property",
+      "ID": "MHP6568476",
+      "Title": "6 Gosford View Manor",
+      "Longitude": "-6.5235767364502",
+      "Latitude": "54.301338195801",
+      "Icon": "/images/sitefiles/map-icons/map-icon-promo.png",
+      "Premium": 1
+    },
+    {
+      "AllowGrouping": false,
+      "MarkerType": "Property",
+      "ID": "JEAJEA0905",
+      "Title": "2 Longridge",
+      "Longitude": "-6.3298516273499",
+      "Latitude": "54.446857452393",
+      "Icon": "/images/sitefiles/map-icons/map-icon-promo.png",
+      "Premium": 1
+    },
+    {
+      "AllowGrouping": false,
+      "MarkerType": "Property",
+      "ID": "ECSECS41095",
+      "Title": "61 Banbridge Road",
+      "Longitude": "-6.3364586830139",
+      "Latitude": "54.376949310303",
+      "Icon": "/images/sitefiles/map-icons/map-icon-promo.png",
+      "Premium": 1
+    },
+    {
+      "AllowGrouping": false,
+      "MarkerType": "Property",
+      "ID": "FDPFDP5112",
+      "Title": "61 Rowantree Road",
+      "Longitude": "-6.1881031990051",
+      "Latitude": "54.399005889893",
+      "Icon": "/images/sitefiles/map-icons/map-icon-promo.png",
+      "Premium": 1
+    },
+    {
+      "AllowGrouping": false,
+      "MarkerType": "Property",
+      "ID": "JEAJEA1041",
+      "Title": "61 Lacehill Park",
+      "Longitude": "-6.4740672111511",
+      "Latitude": "54.417980194092",
+      "Icon": "/images/sitefiles/map-icons/map-icon-promo.png",
+      "Premium": 1
+    },
+    {
+      "AllowGrouping": false,
+      "MarkerType": "Property",
+      "ID": "RJWPRJWP0078",
+      "Title": "Site 6  Ballydown Heights",
+      "Longitude": "-6.2473893165588",
+      "Latitude": "54.343727111816",
+      "Icon": "/images/sitefiles/map-icons/map-icon-promo.png",
+      "Premium": 1
+    },
+    {
+      "AllowGrouping": false,
+      "MarkerType": "Property",
+      "ID": "JEAJEA0902",
+      "Title": "11 Longridge",
+      "Longitude": "-6.3298516273499",
+      "Latitude": "54.446857452393",
+      "Icon": "/images/sitefiles/map-icons/map-icon-promo.png",
+      "Premium": 1
+    },
+    {
+      "AllowGrouping": false,
+      "MarkerType": "Property",
+      "ID": "JEAJEA1067",
+      "Title": "57 Lacehill Park",
+      "Longitude": "-6.4740672111511",
+      "Latitude": "54.417980194092",
+      "Icon": "/images/sitefiles/map-icons/map-icon-promo.png",
+      "Premium": 1
+    },
+    {
+      "AllowGrouping": false,
+      "MarkerType": "Property",
+      "ID": "JEAJEA0661",
+      "Title": "2 Bowens Mews",
+      "Longitude": "-6.3142900466919",
+      "Latitude": "54.452209472656",
+      "Icon": "/images/sitefiles/map-icons/map-icon-promo.png",
+      "Premium": 1
+    },
+    {
+      "AllowGrouping": false,
+      "MarkerType": "Property",
+      "ID": "JEAJEA0949",
+      "Title": "23 Bowens Mews",
+      "Longitude": "-6.3119025230408",
+      "Latitude": "54.447902679443",
+      "Icon": "/images/sitefiles/map-icons/map-icon-promo.png",
+      "Premium": 1
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCBMC1025",
+      "Title": "Lower Quilly Road",
+      "Longitude": "-6.1786937713623",
+      "Latitude": "54.413288116455"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC162745",
+      "Title": "17 Wyncroft Heights",
+      "Longitude": "-6.2833003997803",
+      "Latitude": "54.346393585205"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC165278",
+      "Title": "4 Lismara",
+      "Longitude": "-6.3801393508911",
+      "Latitude": "54.445667266846"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC171682",
+      "Title": "27 Waringfield Crescent",
+      "Longitude": "-6.2342691421509",
+      "Latitude": "54.474002838135"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC160432",
+      "Title": "18 Cecil Street",
+      "Longitude": "-6.4446959495544",
+      "Latitude": "54.418785095215"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC110644",
+      "Title": "12 Silverwood Green",
+      "Longitude": "-6.3543848991394",
+      "Latitude": "54.474250793457"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC104360",
+      "Title": "47 Limewood",
+      "Longitude": "-6.279993057251",
+      "Latitude": "54.354503631592"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC126027",
+      "Title": "Greenan Road",
+      "Longitude": "-6.3076205253601",
+      "Latitude": "54.306274414062"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC191213",
+      "Title": "22 Glen Road",
+      "Longitude": "-6.1776914596558",
+      "Latitude": "54.501972198486"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC187354",
+      "Title": "22 Glen Road",
+      "Longitude": "-6.1776914596558",
+      "Latitude": "54.501972198486"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC191437",
+      "Title": "27 Lairds Road",
+      "Longitude": "-6.111204624176",
+      "Latitude": "54.297927856445"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC198159",
+      "Title": "Loughbrickland Road",
+      "Longitude": "-6.3568425178528",
+      "Latitude": "54.367462158203"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC201588",
+      "Title": "0 Enagh Road",
+      "Longitude": "-6.0939788818359",
+      "Latitude": "54.360858917236"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC202625",
+      "Title": "28 Limewood",
+      "Longitude": "-6.279993057251",
+      "Latitude": "54.354503631592"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC203064",
+      "Title": "37 Coachmans Way",
+      "Longitude": "-6.0878114700317",
+      "Latitude": "54.476589202881"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC203098",
+      "Title": "50 Flush Road",
+      "Longitude": "-6.0649681091309",
+      "Latitude": "54.274044036865"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC209846",
+      "Title": "St Johns Road",
+      "Longitude": "-6.1483097076416",
+      "Latitude": "54.458015441895"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC215338",
+      "Title": "411 Garrymore",
+      "Longitude": "-6.3612456321716",
+      "Latitude": "54.436939239502"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC220555",
+      "Title": "Chestnut Brae",
+      "Longitude": "-6.3602633476257",
+      "Latitude": "54.369270324707"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC224870",
+      "Title": "349 Kernan Hill Manor",
+      "Longitude": "-6.419807434082",
+      "Latitude": "54.41849899292"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC124699",
+      "Title": "3 School Road",
+      "Longitude": "-6.1119332313538",
+      "Latitude": "54.388034820557"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCPRO1613",
+      "Title": "Rock Lane",
+      "Longitude": "-6.2663340568542",
+      "Latitude": "54.512477874756"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC185188",
+      "Title": "26 The Poplars",
+      "Longitude": "-6.2553954124451",
+      "Latitude": "54.416881561279"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC273829",
+      "Title": "4 Mount Charles",
+      "Longitude": "-6.2631659507751",
+      "Latitude": "54.355522155762"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP2458",
+      "Title": "182 Moira Road",
+      "Longitude": "-6.0797624588013",
+      "Latitude": "54.507095336914"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC179977",
+      "Title": "90m West of 2 Scolban Road",
+      "Longitude": "-6.1456060409546",
+      "Latitude": "54.391353607178"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC282697",
+      "Title": "38 Limewood",
+      "Longitude": "-6.279993057251",
+      "Latitude": "54.354503631592"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC284940",
+      "Title": "Opposite  28 Lisraw Road",
+      "Longitude": "-6.3990211486816",
+      "Latitude": "54.315322875977"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMC2465",
+      "Title": "17 Oakwood",
+      "Longitude": "-6.291868686676",
+      "Latitude": "54.432723999023"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC287492",
+      "Title": "Drumaghadone Road",
+      "Longitude": "-6.1373009681702",
+      "Latitude": "54.390911102295"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC287957",
+      "Title": "56 Holm Terrace",
+      "Longitude": "-6.1658792495728",
+      "Latitude": "54.41577911377"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC292748",
+      "Title": "3 Dill Avenue",
+      "Longitude": "-6.3387427330017",
+      "Latitude": "54.464286804199"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC303844",
+      "Title": "47 Baird Avenue",
+      "Longitude": "-6.25696849823",
+      "Latitude": "54.420112609863"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC312585",
+      "Title": "32 Maypole Park",
+      "Longitude": "-6.1482815742493",
+      "Latitude": "54.417873382568"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCBMC2716",
+      "Title": "8 Royal Park Lane",
+      "Longitude": "-6.0904302597046",
+      "Latitude": "54.459136962891"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC320798",
+      "Title": "Ballygowan Road",
+      "Longitude": "-6.2800660133362",
+      "Latitude": "54.346500396729"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC321143",
+      "Title": "173 Edenderry Park",
+      "Longitude": "-6.2824740409851",
+      "Latitude": "54.351089477539"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC324745",
+      "Title": "Finnis Road",
+      "Longitude": "-6.0550475120544",
+      "Latitude": "54.347511291504"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC330336",
+      "Title": "2 Tanners Court",
+      "Longitude": "-6.2231693267822",
+      "Latitude": "54.481163024902"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC332025",
+      "Title": "5 Huntly Road",
+      "Longitude": "-6.2733035087585",
+      "Latitude": "54.353706359863"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC332521",
+      "Title": "56 Oak Grove",
+      "Longitude": "-6.2737312316895",
+      "Latitude": "54.352680206299"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0043",
+      "Title": "86 High Street",
+      "Longitude": "-6.3290905952454",
+      "Latitude": "54.460758209229"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC337341",
+      "Title": "99 Brownstown Rd",
+      "Longitude": "-6.4560127258301",
+      "Latitude": "54.413436889648"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC338131",
+      "Title": "40 Murraywood",
+      "Longitude": "-6.2922616004944",
+      "Latitude": "54.429206848145"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC339758",
+      "Title": "12 Dechomet Road",
+      "Longitude": "-6.0839309692383",
+      "Latitude": "54.330413818359"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMCM2381",
+      "Title": "12 Waringfield Crescent",
+      "Longitude": "-6.2342085838318",
+      "Latitude": "54.473155975342"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC339834",
+      "Title": "25 Willowfield Crescent",
+      "Longitude": "-6.3579664230347",
+      "Latitude": "54.436840057373"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC341131",
+      "Title": "49 Whitethorn Lane",
+      "Longitude": "-6.0741729736328",
+      "Latitude": "54.38257598877"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPPRO1611",
+      "Title": "7 Gloucester Court",
+      "Longitude": "-6.0751700401306",
+      "Latitude": "54.467010498047"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC349733",
+      "Title": "Site 1 Circular Road",
+      "Longitude": "-6.145327091217",
+      "Latitude": "54.411876678467"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC350259",
+      "Title": "51 Castlewellan Road",
+      "Longitude": "-6.2603764533997",
+      "Latitude": "54.345802307129"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC360217",
+      "Title": "5 The Grange",
+      "Longitude": "-6.2770638465881",
+      "Latitude": "54.340309143066"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC124283",
+      "Title": "31 Annesborough Park",
+      "Longitude": "-6.3507084846497",
+      "Latitude": "54.480113983154"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC255229",
+      "Title": "1 Windsor Avenue",
+      "Longitude": "-6.3277258872986",
+      "Latitude": "54.472305297852"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC380503",
+      "Title": "11 BROOK CLOSE",
+      "Longitude": "-6.4584560394287",
+      "Latitude": "54.406436920166"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC380181",
+      "Title": "Cloverdale",
+      "Longitude": "-6.2442469596863",
+      "Latitude": "54.401222229004"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC251920",
+      "Title": "149-151 Warren Gardens",
+      "Longitude": "-6.0571146011353",
+      "Latitude": "54.503505706787"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC176189",
+      "Title": "Tullyglush Road",
+      "Longitude": "-6.130567073822",
+      "Latitude": "54.377128601074"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC380778",
+      "Title": "22 Hillsborough Road",
+      "Longitude": "-6.1994204521179",
+      "Latitude": "54.483596801758"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC380826",
+      "Title": "The Buttercup",
+      "Longitude": "-6.3915967941284",
+      "Latitude": "54.453922271729"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC382792",
+      "Title": "25 Monree Hill",
+      "Longitude": "-6.2558484077454",
+      "Latitude": "54.418910980225"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC383255",
+      "Title": "23 Fort Street",
+      "Longitude": "-6.2758474349976",
+      "Latitude": "54.342548370361"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0150",
+      "Title": "18 Riverdale Crescent",
+      "Longitude": "-6.2744760513306",
+      "Latitude": "54.433609008789"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC391639",
+      "Title": "School Terrace",
+      "Longitude": "-6.3786792755127",
+      "Latitude": "54.448635101318"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC400570",
+      "Title": "64 Allengrove",
+      "Longitude": "-6.3352942466736",
+      "Latitude": "54.474376678467"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC402535",
+      "Title": "21 Loughbrickland Road",
+      "Longitude": "-6.348424911499",
+      "Latitude": "54.361320495605"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC406245",
+      "Title": "Gall Bog Road",
+      "Longitude": "-6.1534872055054",
+      "Latitude": "54.366851806641"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC406790",
+      "Title": "Raughlan Court",
+      "Longitude": "-6.405394077301",
+      "Latitude": "54.479396820068"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC408563",
+      "Title": "48 DRUMGOOLAND ROAD",
+      "Longitude": "-6.0948801040649",
+      "Latitude": "54.305057525635"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC408922",
+      "Title": "Mays Corner Road",
+      "Longitude": "-6.1666774749756",
+      "Latitude": "54.28246307373"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC410791",
+      "Title": "86 Banbridge Road",
+      "Longitude": "-6.287944316864",
+      "Latitude": "54.421859741211"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC412464",
+      "Title": "57 Limewood",
+      "Longitude": "-6.279993057251",
+      "Latitude": "54.354503631592"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC416685",
+      "Title": "30 Tory Brae",
+      "Longitude": "-6.0740652084351",
+      "Latitude": "54.359893798828"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC434603",
+      "Title": "9 Brookfield Park",
+      "Longitude": "-6.2791166305542",
+      "Latitude": "54.353385925293"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC435308",
+      "Title": "5 Village Court",
+      "Longitude": "-6.2226300239563",
+      "Latitude": "54.480079650879"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC435782",
+      "Title": "32 Breezeways",
+      "Longitude": "-6.278751373291",
+      "Latitude": "54.337837219238"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCBMCM0973",
+      "Title": "Rock Lane",
+      "Longitude": "-6.2698769569397",
+      "Latitude": "54.512363433838"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC446618",
+      "Title": "20 Oak Grove",
+      "Longitude": "-6.2737312316895",
+      "Latitude": "54.352680206299"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC447393",
+      "Title": "31 Corcreeny Road",
+      "Longitude": "-6.1267786026001",
+      "Latitude": "54.458591461182"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC454052",
+      "Title": "123 Moyraverty Court",
+      "Longitude": "-6.3606872558594",
+      "Latitude": "54.440559387207"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC454883",
+      "Title": "Derrycush Road",
+      "Longitude": "-6.5305137634277",
+      "Latitude": "54.485996246338"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC456247",
+      "Title": "Enagh Road",
+      "Longitude": "-6.1048679351807",
+      "Latitude": "54.370624542236"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0199",
+      "Title": "96 Union Street",
+      "Longitude": "-6.332998752594",
+      "Latitude": "54.459114074707"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC465562",
+      "Title": "73 Bannfoot Road",
+      "Longitude": "-6.5151505470276",
+      "Latitude": "54.506256103516"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC472670",
+      "Title": "Between 21 & 22 Bridgeways",
+      "Longitude": "-6.2697801589966",
+      "Latitude": "54.348968505859"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMCM4119",
+      "Title": "64a Soldierstown Road",
+      "Longitude": "-6.2275314331055",
+      "Latitude": "54.500949859619"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC474496",
+      "Title": "12 Beechwood Gardens",
+      "Longitude": "-6.2324228286743",
+      "Latitude": "54.481288909912"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC474772",
+      "Title": "19 Lagan Terrace",
+      "Longitude": "-6.2590312957764",
+      "Latitude": "54.418334960938"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMCM4097",
+      "Title": "15 Gallows Place",
+      "Longitude": "-6.1467056274414",
+      "Latitude": "54.417282104492"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC477145",
+      "Title": "51 Hunters Hill Park",
+      "Longitude": "-6.3566603660583",
+      "Latitude": "54.376644134521"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC477771",
+      "Title": "39  Weavers Meadow",
+      "Longitude": "-6.2731242179871",
+      "Latitude": "54.356517791748"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC478229",
+      "Title": "54 Limewood",
+      "Longitude": "-6.279993057251",
+      "Latitude": "54.354503631592"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC478376",
+      "Title": "25 Heron Wood",
+      "Longitude": "-6.141592502594",
+      "Latitude": "54.410087585449"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC478693",
+      "Title": "Drumnabreeze Road",
+      "Longitude": "-6.0797624588013",
+      "Latitude": "54.507095336914"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC479504",
+      "Title": "11 Closkelt Road",
+      "Longitude": "-6.0718278884888",
+      "Latitude": "54.303848266602"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMCM4257",
+      "Title": "19 Main Street",
+      "Longitude": "-6.2584838867188",
+      "Latitude": "54.419261932373"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC481936",
+      "Title": "154 Edenderry Park",
+      "Longitude": "-6.2814207077026",
+      "Latitude": "54.351623535156"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC483773",
+      "Title": "SITE AT GOSFORD ROAD",
+      "Longitude": "-6.4762687683105",
+      "Latitude": "54.27855682373"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "HGMPNC1293",
+      "Title": "8 Gravelhill Road",
+      "Longitude": "-6.118944644928",
+      "Latitude": "54.490497589111"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMCM4316",
+      "Title": "17 Holly Hill",
+      "Longitude": "-6.299596786499",
+      "Latitude": "54.461982727051"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC488891",
+      "Title": "10-12 Bridge Street",
+      "Longitude": "-6.1487045288086",
+      "Latitude": "54.413963317871"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC489193",
+      "Title": "40",
+      "Longitude": "-6.288526058197",
+      "Latitude": "54.351669311523"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0232",
+      "Title": "15 Sunningdale",
+      "Longitude": "-6.3350615501404",
+      "Latitude": "54.451999664307"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC491380",
+      "Title": "22 Avonridge",
+      "Longitude": "-6.3952493667603",
+      "Latitude": "54.452171325684"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC492314",
+      "Title": "3 CANNAGOLA ROAD",
+      "Longitude": "-6.5348744392395",
+      "Latitude": "54.454711914062"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC493783",
+      "Title": "Tonnaghmore Road",
+      "Longitude": "-6.2483587265015",
+      "Latitude": "54.388221740723"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "TRLTRO58311",
+      "Title": "8 Hampton Court",
+      "Longitude": "-6.158784866333",
+      "Latitude": "54.40979385376"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC496051",
+      "Title": "72 Bramblewood Drive",
+      "Longitude": "-6.2537312507629",
+      "Latitude": "54.348728179932"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC498209",
+      "Title": "1 Hammond Farm",
+      "Longitude": "-6.1904711723328",
+      "Latitude": "54.506507873535"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC498356",
+      "Title": "36 Limewood",
+      "Longitude": "-6.279993057251",
+      "Latitude": "54.354503631592"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC499536",
+      "Title": "4 Lancasterian Court",
+      "Longitude": "-6.2676129341125",
+      "Latitude": "54.353302001953"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC502887",
+      "Title": "15 Waringfield Park",
+      "Longitude": "-6.2331809997559",
+      "Latitude": "54.475524902344"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC503753",
+      "Title": "83 Armagh Road",
+      "Longitude": "-6.4627494812012",
+      "Latitude": "54.349227905273"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC503980",
+      "Title": "67 Apt 6 Summerhill",
+      "Longitude": "-6.1891717910767",
+      "Latitude": "54.308494567871"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC504189",
+      "Title": "OLD FORT LODGE",
+      "Longitude": "-6.4086694717407",
+      "Latitude": "54.435401916504"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC506243",
+      "Title": "Drumnagoon Road",
+      "Longitude": "-6.4084115028381",
+      "Latitude": "54.450336456299"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMCM3062",
+      "Title": "adj to 24  Villawood Road",
+      "Longitude": "-6.199481010437",
+      "Latitude": "54.399642944336"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC509853",
+      "Title": "96a Belvedere Manor",
+      "Longitude": "-6.3170218467712",
+      "Latitude": "54.471858978271"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC508475",
+      "Title": "115 Monree Hill",
+      "Longitude": "-6.2552347183228",
+      "Latitude": "54.418479919434"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC370997",
+      "Title": "12 Holymount Road",
+      "Longitude": "-6.3089423179626",
+      "Latitude": "54.377433776855"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC233394",
+      "Title": "22 Weavers Court",
+      "Longitude": "-6.2694053649902",
+      "Latitude": "54.353122711182"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0259",
+      "Title": "22 Parkview Court",
+      "Longitude": "-6.3351545333862",
+      "Latitude": "54.451873779297"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC512165",
+      "Title": "15 Mornington Avenue",
+      "Longitude": "-6.0818819999695",
+      "Latitude": "54.511520385742"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMCM4477",
+      "Title": "24 Mullafernaghan Road",
+      "Longitude": "-6.2150492668152",
+      "Latitude": "54.384613037109"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMCM4307",
+      "Title": "126 Dromore Road",
+      "Longitude": "-6.2496600151062",
+      "Latitude": "54.434070587158"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC514615",
+      "Title": "51 Rose Garden",
+      "Longitude": "-6.4444360733032",
+      "Latitude": "54.372131347656"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP3996",
+      "Title": "14 Lurganbane Road",
+      "Longitude": "-6.1179814338684",
+      "Latitude": "54.402671813965"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "UPS11217-2-261793",
+      "Title": "4 Uppertown Road",
+      "Longitude": "-6.116014957428",
+      "Latitude": "54.287220001221"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCBMC4144",
+      "Title": "1 Mornington View",
+      "Longitude": "-6.0809764862061",
+      "Latitude": "54.510944366455"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC519239",
+      "Title": "Carnpark Road",
+      "Longitude": "-6.094021320343",
+      "Latitude": "54.33874130249"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC519292",
+      "Title": "9 Bredan Park",
+      "Longitude": "-6.2725877761841",
+      "Latitude": "54.464401245117"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC519614",
+      "Title": "189-191 Obins Street",
+      "Longitude": "-6.4556369781494",
+      "Latitude": "54.427085876465"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC520333",
+      "Title": "15 Lurganbane Road",
+      "Longitude": "-6.1088752746582",
+      "Latitude": "54.405982971191"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC521339",
+      "Title": "14 Brett Avenue",
+      "Longitude": "-6.3415131568909",
+      "Latitude": "54.47220993042"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC521988",
+      "Title": "18 Gannon Lodge",
+      "Longitude": "-6.2598643302917",
+      "Latitude": "54.412166595459"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC522054",
+      "Title": "23 Pier Rampart",
+      "Longitude": "-6.4458718299866",
+      "Latitude": "54.504978179932"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC522570",
+      "Title": "90 Hunters Hill Park",
+      "Longitude": "-6.3550119400024",
+      "Latitude": "54.377498626709"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC523334",
+      "Title": "20 Laganview",
+      "Longitude": "-6.2605729103088",
+      "Latitude": "54.420307159424"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC524566",
+      "Title": "13 Spring Meadow",
+      "Longitude": "-6.1943960189819",
+      "Latitude": "54.508464813232"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP2122",
+      "Title": "45 Banbridge Road",
+      "Longitude": "-6.1622891426086",
+      "Latitude": "54.410404205322"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC529657",
+      "Title": "118 Ballygowan Road",
+      "Longitude": "-6.2812643051147",
+      "Latitude": "54.349178314209"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCBMC4060",
+      "Title": "54 Ballinderry Road",
+      "Longitude": "-6.0778775215149",
+      "Latitude": "54.512317657471"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC530305",
+      "Title": "69 Old Mill Manor",
+      "Longitude": "-6.4567799568176",
+      "Latitude": "54.368675231934"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMCM4902",
+      "Title": "45B Halfpenny Gate Road",
+      "Longitude": "-6.1636114120483",
+      "Latitude": "54.485397338867"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "HGMHGM1907",
+      "Title": "12 Laverys Bridge Road",
+      "Longitude": "-6.1649575233459",
+      "Latitude": "54.469356536865"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC533986",
+      "Title": "3 Pinley Crescent",
+      "Longitude": "-6.2854690551758",
+      "Latitude": "54.340915679932"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP4136",
+      "Title": "Tullyglush Road",
+      "Longitude": "-6.1292090415955",
+      "Latitude": "54.37557220459"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC534353",
+      "Title": "Leamount Park",
+      "Longitude": "-6.2791700363159",
+      "Latitude": "54.344711303711"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC534945",
+      "Title": "53 Backwood Road",
+      "Longitude": "-6.2366504669189",
+      "Latitude": "54.484046936035"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC536027",
+      "Title": "107 Aghorey Road",
+      "Longitude": "-6.5150451660156",
+      "Latitude": "54.363143920898"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC537557",
+      "Title": "120 Derrytrasna Road",
+      "Longitude": "-6.443519115448",
+      "Latitude": "54.49817276001"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC538712",
+      "Title": "SITE ADJACENT TO 17 MAVEMACULLEN ROAD",
+      "Longitude": "-6.454656124115",
+      "Latitude": "54.315647125244"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC538994",
+      "Title": "36 Kilntown Road",
+      "Longitude": "-6.170205116272",
+      "Latitude": "54.42818069458"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC542389",
+      "Title": "1 Rose Cottages",
+      "Longitude": "-6.4523735046387",
+      "Latitude": "54.429103851318"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "MCSMCS2278",
+      "Title": "4 Warren Park Drive",
+      "Longitude": "-6.0559186935425",
+      "Latitude": "54.504657745361"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC544377",
+      "Title": "21 Lower Castlevennon Road",
+      "Longitude": "-6.1684107780457",
+      "Latitude": "54.323192596436"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "JKFJKF0782",
+      "Title": "22 Parkview Court",
+      "Longitude": "-6.3440256118774",
+      "Latitude": "54.461463928223"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC547758",
+      "Title": "Farlough House",
+      "Longitude": "-6.5359015464783",
+      "Latitude": "54.482707977295"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC549348",
+      "Title": "6 Church Road",
+      "Longitude": "-6.4276905059814",
+      "Latitude": "54.497978210449"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC554397",
+      "Title": "39 Kilmore Road",
+      "Longitude": "-6.3255472183228",
+      "Latitude": "54.469902038574"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC555260",
+      "Title": "Builing Si (100m South of 18 Mays Corner Road)",
+      "Longitude": "-6.1426100730896",
+      "Latitude": "54.303680419922"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC556060",
+      "Title": "16 Causeway Meadows",
+      "Longitude": "-6.0707998275757",
+      "Latitude": "54.513282775879"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC557475",
+      "Title": "17 Weavers Lane",
+      "Longitude": "-6.2924551963806",
+      "Latitude": "54.43013381958"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC560139",
+      "Title": "71 Drumaknockan Road",
+      "Longitude": "-6.0554943084717",
+      "Latitude": "54.420391082764"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC562143",
+      "Title": "11 Old Court Manor",
+      "Longitude": "-6.3556485176086",
+      "Latitude": "54.43815612793"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC565184",
+      "Title": "156 Thomas Street",
+      "Longitude": "-6.4440369606018",
+      "Latitude": "54.417148590088"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC565605",
+      "Title": "14 Bramblewood",
+      "Longitude": "-6.1917095184326",
+      "Latitude": "54.502094268799"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC567354",
+      "Title": "24a Colane Road",
+      "Longitude": "-6.2931060791016",
+      "Latitude": "54.503593444824"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC569060",
+      "Title": "47 Soldierstown Road",
+      "Longitude": "-6.2501907348633",
+      "Latitude": "54.50760269165"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "ECSECS25256",
+      "Title": "1 Whitethorn Grove",
+      "Longitude": "-6.0799026489258",
+      "Latitude": "54.38395690918"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC571727",
+      "Title": "97 Tannaghmore Road",
+      "Longitude": "-6.4966735839844",
+      "Latitude": "54.314945220947"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "HGMHGM2348",
+      "Title": "78 Mourne Grange",
+      "Longitude": "-6.1509790420532",
+      "Latitude": "54.410018920898"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "ECSECS25816",
+      "Title": "39 Kilmore Road",
+      "Longitude": "-6.3166236877441",
+      "Latitude": "54.47053527832"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC578340",
+      "Title": "67 Hunters Hill Park",
+      "Longitude": "-6.3550119400024",
+      "Latitude": "54.377498626709"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCBMC5507",
+      "Title": "SITE 2 Lany Road",
+      "Longitude": "-6.1444664001465",
+      "Latitude": "54.472728729248"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC582709",
+      "Title": "58 Holly Hill",
+      "Longitude": "-6.2980842590332",
+      "Latitude": "54.46195602417"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC582722",
+      "Title": "24 Bambrick Terrace",
+      "Longitude": "-6.2632412910461",
+      "Latitude": "54.353179931641"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC583529",
+      "Title": "Adj to 270-272 Moira Road",
+      "Longitude": "-6.1311802864075",
+      "Latitude": "54.500354766846"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCBMC4456",
+      "Title": "Grove Road",
+      "Longitude": "-6.1109833717346",
+      "Latitude": "54.425708770752"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC586726",
+      "Title": "Adjacent to 45 Chinauley Park",
+      "Longitude": "-6.2544441223145",
+      "Latitude": "54.345119476318"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP4652",
+      "Title": "81 Drumgooland Road",
+      "Longitude": "-6.093514919281",
+      "Latitude": "54.311855316162"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "HGMHGM2548",
+      "Title": "22 Mount Ida Road",
+      "Longitude": "-6.1887407302856",
+      "Latitude": "54.380187988281"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC587740",
+      "Title": "12 Drumlough Road",
+      "Longitude": "-6.0602202415466",
+      "Latitude": "54.43200302124"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0297",
+      "Title": "64 Larkfield Meadows",
+      "Longitude": "-6.3616013526917",
+      "Latitude": "54.438201904297"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC588260",
+      "Title": "146 Avenue Road",
+      "Longitude": "-6.313994884491",
+      "Latitude": "54.458690643311"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "ECSECS26729",
+      "Title": "88 New Forge Road",
+      "Longitude": "-6.2600612640381",
+      "Latitude": "54.454074859619"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC589067",
+      "Title": "1 Kane Terrace",
+      "Longitude": "-6.0751843452454",
+      "Latitude": "54.380489349365"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC592096",
+      "Title": "Ballybay View",
+      "Longitude": "-6.4658784866333",
+      "Latitude": "54.421539306641"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC594468",
+      "Title": "39 BALLYBAY MEADOWS",
+      "Longitude": "-6.4670720100403",
+      "Latitude": "54.423599243164"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC594473",
+      "Title": "49 KEELMOUNT GRANGE",
+      "Longitude": "-6.5159029960632",
+      "Latitude": "54.441783905029"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC595134",
+      "Title": "Park Lane",
+      "Longitude": "-6.368688583374",
+      "Latitude": "54.357612609863"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC596875",
+      "Title": "Ballinaskeagh",
+      "Longitude": "-6.249969959259",
+      "Latitude": "54.277099609375"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "HGMHGM2494",
+      "Title": "1 Lagan Villas",
+      "Longitude": "-6.1560673713684",
+      "Latitude": "54.412715911865"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC600807",
+      "Title": "20 Hertford Crescent",
+      "Longitude": "-6.0723323822021",
+      "Latitude": "54.508247375488"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC600872",
+      "Title": "23B Shanrod Road",
+      "Longitude": "-6.1424808502197",
+      "Latitude": "54.337154388428"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0556",
+      "Title": "427 Ballyoran Park",
+      "Longitude": "-6.4515562057495",
+      "Latitude": "54.433097839355"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0585",
+      "Title": "381 Ballyoran Park",
+      "Longitude": "-6.452522277832",
+      "Latitude": "54.43469619751"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC606080",
+      "Title": "43 Markville",
+      "Longitude": "-6.3476343154907",
+      "Latitude": "54.424194335938"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC606797",
+      "Title": "10 Breezeways",
+      "Longitude": "-6.2923731803894",
+      "Latitude": "54.337856292725"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC628863",
+      "Title": "17 Hawthorne Hill",
+      "Longitude": "-6.2870988845825",
+      "Latitude": "54.344142913818"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC633403",
+      "Title": "5 Edendell",
+      "Longitude": "-6.2738308906555",
+      "Latitude": "54.352626800537"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMC5887",
+      "Title": "52 Clarendon Park",
+      "Longitude": "-6.2540898323059",
+      "Latitude": "54.46590423584"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0636",
+      "Title": "8 Beechcroft",
+      "Longitude": "-6.3009386062622",
+      "Latitude": "54.4599609375"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APXAPX0009",
+      "Title": "20 Clendinning Drive",
+      "Longitude": "-6.4427785873413",
+      "Latitude": "54.407901763916"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "TMSATMSA0073",
+      "Title": "Belvedere",
+      "Longitude": "-6.317310333252",
+      "Latitude": "54.474128723145"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCMBMC5937",
+      "Title": "48 Irwin Gardens",
+      "Longitude": "-6.3184294700623",
+      "Latitude": "54.451175689697"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC639460",
+      "Title": "56 Jubilee Heights",
+      "Longitude": "-6.1367506980896",
+      "Latitude": "54.419124603271"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "TRLTRL67080",
+      "Title": "20 Moyallon Road",
+      "Longitude": "-6.3735499382019",
+      "Latitude": "54.384372711182"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC641041",
+      "Title": "Hazelgrove Avenue",
+      "Longitude": "-6.3109002113342",
+      "Latitude": "54.459762573242"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC641042",
+      "Title": "Hazelgrove Avenue",
+      "Longitude": "-6.3109002113342",
+      "Latitude": "54.459762573242"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC641226",
+      "Title": "6 Princes Street",
+      "Longitude": "-6.14825963974",
+      "Latitude": "54.41480255127"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC641913",
+      "Title": "9 Lisnashanker Road",
+      "Longitude": "-6.1954374313354",
+      "Latitude": "54.436729431152"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP5123",
+      "Title": "Garvaghy Church Road",
+      "Longitude": "-6.1176681518555",
+      "Latitude": "54.355754852295"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "SMS670488",
+      "Title": "97 New Forge Road",
+      "Longitude": "-6.2602100372314",
+      "Latitude": "54.453029632568"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC645893",
+      "Title": "58 Causeway Meadows",
+      "Longitude": "-6.0707998275757",
+      "Latitude": "54.513282775879"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "HGMPNC269104",
+      "Title": "76 Mourne Grange",
+      "Longitude": "-6.1510429382324",
+      "Latitude": "54.408905029297"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC651368",
+      "Title": "25 Whitethorn Lane",
+      "Longitude": "-6.0756216049194",
+      "Latitude": "54.382446289062"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC652231",
+      "Title": "Deering's Grove",
+      "Longitude": "-6.3354387283325",
+      "Latitude": "54.478748321533"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC652330",
+      "Title": "36 Drumbroneth Road",
+      "Longitude": "-6.1477236747742",
+      "Latitude": "54.40353012085"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC652677",
+      "Title": "88 Katesbridge Road",
+      "Longitude": "-6.0998754501343",
+      "Latitude": "54.290580749512"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "NEANEA3617",
+      "Title": "Site at 120m East Of 24 Edentrillick Hill",
+      "Longitude": "-6.0822510719299",
+      "Latitude": "54.434459686279"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC655771",
+      "Title": "33 Knockgorm Road",
+      "Longitude": "-6.1600604057312",
+      "Latitude": "54.346118927002"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC656950",
+      "Title": "33 Millturn View",
+      "Longitude": "-6.160050868988",
+      "Latitude": "54.408382415771"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC657471",
+      "Title": "44 Blackbridge Road",
+      "Longitude": "-6.3459186553955",
+      "Latitude": "54.288234710693"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC658589",
+      "Title": "Derry Park Lane",
+      "Longitude": "-6.3403887748718",
+      "Latitude": "54.469272613525"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC658595",
+      "Title": "Lagan Gate",
+      "Longitude": "-6.2986884117126",
+      "Latitude": "54.507862091064"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCBMC5961",
+      "Title": "143a Banbridge Road",
+      "Longitude": "-6.0626883506775",
+      "Latitude": "54.380767822266"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0669",
+      "Title": "1 Millfort Crescent",
+      "Longitude": "-6.2969279289246",
+      "Latitude": "54.434322357178"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP5359",
+      "Title": "Beside 167 Dromore Road",
+      "Longitude": "-6.2496600151062",
+      "Latitude": "54.434070587158"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP5365",
+      "Title": "6 Halftown Road",
+      "Longitude": "-6.0974659919739",
+      "Latitude": "54.499668121338"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC662435",
+      "Title": "45 Danesfort",
+      "Longitude": "-6.2418222427368",
+      "Latitude": "54.478816986084"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC663451",
+      "Title": "3 Farm at Hammonds Road",
+      "Longitude": "-6.2082929611206",
+      "Latitude": "54.508045196533"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "TRLTRL70572",
+      "Title": "(Package 2 Hammonds Road",
+      "Longitude": "-6.2006030082703",
+      "Latitude": "54.50874710083"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCBMC6241",
+      "Title": "94 Dromore Road",
+      "Longitude": "-6.1035823822021",
+      "Latitude": "54.45210647583"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC663731",
+      "Title": "7 Silverwood Leaves",
+      "Longitude": "-6.3672881126404",
+      "Latitude": "54.46851348877"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "73683159258",
+      "Title": "Edenderry Park",
+      "Longitude": "-6.283091545105",
+      "Latitude": "54.351169586182"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0759",
+      "Title": "15 Shane Park",
+      "Longitude": "-6.3139181137085",
+      "Latitude": "54.45166015625"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC665791",
+      "Title": "85 Causeway Meadows",
+      "Longitude": "-6.0707998275757",
+      "Latitude": "54.513282775879"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP5408",
+      "Title": "70-72 Soldierstown Road",
+      "Longitude": "-6.225727558136",
+      "Latitude": "54.500553131104"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "HGMHGM3180",
+      "Title": "Mossvale Road",
+      "Longitude": "-6.1413688659668",
+      "Latitude": "54.414443969727"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC667192",
+      "Title": "81 Kernan Avenue",
+      "Longitude": "-6.4191837310791",
+      "Latitude": "54.440498352051"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "TMSLTMSL0187",
+      "Title": "Drumnagoon Meadows",
+      "Longitude": "-6.4072918891907",
+      "Latitude": "54.44287109375"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC667989",
+      "Title": "Glenwood Park",
+      "Longitude": "-6.3209505081177",
+      "Latitude": "54.450107574463"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "1199RR200619561",
+      "Title": "Lady Hill Court",
+      "Longitude": "-6.0946259498596",
+      "Latitude": "54.455493927002"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "ECSECS32709",
+      "Title": "24 Oroory Hill Road",
+      "Longitude": "-6.2105369567871",
+      "Latitude": "54.403945922852"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "RWE669797",
+      "Title": "4 Village Green",
+      "Longitude": "-6.2276468276978",
+      "Latitude": "54.48123550415"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC508314",
+      "Title": "19 Parklands",
+      "Longitude": "-6.2564578056335",
+      "Latitude": "54.465518951416"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PNC361294",
+      "Title": "Uppertown Road",
+      "Longitude": "-6.1149215698242",
+      "Latitude": "54.28897857666"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "EEA670155",
+      "Title": "95 Manor Park",
+      "Longitude": "-6.0548720359802",
+      "Latitude": "54.506813049316"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "LEQ669896",
+      "Title": "54c Circular Road",
+      "Longitude": "-6.2040777206421",
+      "Latitude": "54.317611694336"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "ECSECS32702",
+      "Title": "19 Gannon Lodge",
+      "Longitude": "-6.2603497505188",
+      "Latitude": "54.413223266602"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "RWE669798",
+      "Title": "16b Ballynahinch Street",
+      "Longitude": "-6.080632686615",
+      "Latitude": "54.464057922363"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP5539",
+      "Title": "Ballyeden Meadows",
+      "Longitude": "-6.2572288513184",
+      "Latitude": "54.467643737793"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "MCSMCS3247",
+      "Title": "33 Millturn View",
+      "Longitude": "-6.1599154472351",
+      "Latitude": "54.408222198486"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "UPS11217-15-10064126",
+      "Title": "9 Castle Avenue",
+      "Longitude": "-6.2315511703491",
+      "Latitude": "54.482601165771"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "RWE669805",
+      "Title": "273b Ballygowan Road",
+      "Longitude": "-6.2039771080017",
+      "Latitude": "54.426769256592"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "TRLISTRL50940",
+      "Title": "273A Ballygowan Road",
+      "Longitude": "-6.1970186233521",
+      "Latitude": "54.433708190918"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "TRLISTRL51066",
+      "Title": "273B Ballygowan Road",
+      "Longitude": "-6.1970615386963",
+      "Latitude": "54.433536529541"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "APLAPL0830",
+      "Title": "25 Murray Wood",
+      "Longitude": "-6.2952561378479",
+      "Latitude": "54.429363250732"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "SCP669707",
+      "Title": "33 Timakeel Grange",
+      "Longitude": "-6.5121803283691",
+      "Latitude": "54.439094543457"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "HGMHGM3298",
+      "Title": "37 Kesh Road",
+      "Longitude": "-6.1190738677979",
+      "Latitude": "54.48274230957"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "RWE669820",
+      "Title": "17 Glen Road",
+      "Longitude": "-6.2419543266296",
+      "Latitude": "54.391307830811"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "RWE669827",
+      "Title": "104 Blackskull Road",
+      "Longitude": "-6.2284359931946",
+      "Latitude": "54.408145904541"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "PPH670270",
+      "Title": "270m East of 81 Garvaghy Church Road",
+      "Longitude": "-6.1180801391602",
+      "Latitude": "54.364036560059"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "JCE670281",
+      "Title": "37  Beech Meadows",
+      "Longitude": "-6.2886309623718",
+      "Latitude": "54.430854797363"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "RWE669831",
+      "Title": "2 Langtry Lodge",
+      "Longitude": "-6.2382502555847",
+      "Latitude": "54.484195709229"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "JCE670289",
+      "Title": "SITE AT SCOTCH STREET",
+      "Longitude": "-6.5148015022278",
+      "Latitude": "54.440200805664"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP5652",
+      "Title": "31 Villawood Road",
+      "Longitude": "-6.1982083320618",
+      "Latitude": "54.398475646973"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "CJBECJBE1197",
+      "Title": "25 Bracken Ridge",
+      "Longitude": "-6.1410665512085",
+      "Latitude": "54.416271209717"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "ECSECS33676",
+      "Title": "Site 2 Meeting Street",
+      "Longitude": "-6.0813069343567",
+      "Latitude": "54.464771270752"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "ECSECS33701",
+      "Title": "20 Skeagh Road",
+      "Longitude": "-6.0852551460266",
+      "Latitude": "54.384857177734"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "SMP669808",
+      "Title": "WOODVILLE GATE",
+      "Longitude": "-6.3416647911072",
+      "Latitude": "54.474502563477"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "RWE669845",
+      "Title": "10 Manor Court",
+      "Longitude": "-6.2239646911621",
+      "Latitude": "54.481090545654"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCBMC6437",
+      "Title": "118 Ballymacormick Road",
+      "Longitude": "-6.1025876998901",
+      "Latitude": "54.419689178467"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "TRLISTRLIS72431",
+      "Title": "63 Drumaknockan Road",
+      "Longitude": "-6.0640439987183",
+      "Latitude": "54.421859741211"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "JCE670306",
+      "Title": "18 BEECH MEADOWS",
+      "Longitude": "-6.307363986969",
+      "Latitude": "54.438053131104"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "RWL670180",
+      "Title": "3 Two Bed Apartments",
+      "Longitude": "-6.3345007896423",
+      "Latitude": "54.457775115967"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "GVK669710",
+      "Title": "Castlewellan Road",
+      "Longitude": "-6.2474579811096",
+      "Latitude": "54.343753814697"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "SPS668217",
+      "Title": "24 Oroory Hill Road",
+      "Longitude": "-6.2154703140259",
+      "Latitude": "54.40234375"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "LEQ669813",
+      "Title": "27 Newry Road",
+      "Longitude": "-6.2707080841064",
+      "Latitude": "54.348220825195"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "SPS668221",
+      "Title": "1 Iveagh Corner",
+      "Longitude": "-6.2402911186218",
+      "Latitude": "54.406200408936"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "LEQ669814",
+      "Title": "19 Ballymoney Road",
+      "Longitude": "-6.2600293159485",
+      "Latitude": "54.35791015625"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "JKFJKF0865",
+      "Title": "4 Kings Chase",
+      "Longitude": "-6.1224627494812",
+      "Latitude": "54.487953186035"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "ECSECS34148",
+      "Title": "97 Villawood Road",
+      "Longitude": "-6.2134432792664",
+      "Latitude": "54.414356231689"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "SRS670293",
+      "Title": "94 Hillsborough Road",
+      "Longitude": "-6.1223754882812",
+      "Latitude": "54.42565536499"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BMCBMC6581",
+      "Title": "Site 45 Milebush Manor",
+      "Longitude": "-6.1394448280334",
+      "Latitude": "54.420272827148"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "VPAVPA1688",
+      "Title": "96 Dromore Road",
+      "Longitude": "-6.1032733917236",
+      "Latitude": "54.452674865723"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "FDPFDP5766",
+      "Title": "25 Heron Wood",
+      "Longitude": "-6.1436715126038",
+      "Latitude": "54.410858154297"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BPSNBPSN4655",
+      "Title": "Drumaran Road",
+      "Longitude": "-6.3375272750854",
+      "Latitude": "54.357540130615"
+    },
+    {
+      "AllowGrouping": true,
+      "MarkerType": "Property",
+      "ID": "BPSNBPSN4665",
+      "Title": "Selshion Mews",
+      "Longitude": "-6.4608306884766",
+      "Latitude": "54.431350708008"
+    }
+  ],
+  "searchId": "",
+  "count": 300,
+  "total": 1568,
+  "totalFormatted": "1,568",
+  "refineCounts": {
+    "RemoveImages": {
+      "images": "12,883"
+    },
+    "Added": {
+      "lw": "1,568",
+      "lm": "12,883",
+      "lm3": "142"
+    },
+    "Bedrooms": {
+      "1": "142",
+      "2": "1,729",
+      "3": "5,031",
+      "4": "3,636",
+      "5": "1,100",
+      "6": "815"
+    },
+    "PlanningPermissionMultiple": {
+      "": "0"
+    },
+    "PlanningPermissionSingle": {
+      "": "0"
+    },
+    "IncludeAgreed": {
+      "agreed": "20,927"
+    },
+    "ExcludePOA": {
+      "poa": "12,607"
+    },
+    "PropertyType": {
+      "1": "1,191",
+      "2": "125",
+      "3": "1,289",
+      "4": "4,251",
+      "5": "34",
+      "6": "82",
+      "7": "194",
+      "8": "2,661",
+      "9": "1,159",
+      "10": "722",
+      "11": "362",
+      "13": "3",
+      "15": "1",
+      "16": "1",
+      "17": "1",
+      "20": "1",
+      "22": "1",
+      "24": "2",
+      "26": "402",
+      "27": "92",
+      "29": "1",
+      "30": "11",
+      "31": "17",
+      "32": "1",
+      "34": "469"
+    },
+    "ReceptionRooms": {
+      "1": "5,171",
+      "2": "3,327",
+      "3": "1,731",
+      "4": "490",
+      "5": "101",
+      "6": "39"
+    },
+    "Heating": {
+      "AirSourceHeatPump": "3",
+      "Electric": "18",
+      "Underfloor": "26",
+      "OFCH": "2,820",
+      "WoodBurningPellets": "4",
+      "Dual": "93",
+      "SFCH": "4",
+      "GFCH": "895",
+      "NotDisclosed": "11",
+      "Oil": "2,227",
+      "Gas": "1,389",
+      "OpenFire": "7",
+      "E7CH": "21",
+      "SolidFuel": "15",
+      "None": "78",
+      "Economy7": "100",
+      "PhoenixGas": "180"
+    },
+    "Furnished": [],
+    "Keywords": [],
+    "Agent": []
+  }
+}
