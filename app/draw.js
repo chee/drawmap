@@ -84,6 +84,16 @@ function redrawMap(map) {
     })
     return !contained
   })
+
+  // erase gaps that are *not* inside another feature
+  gaps = gaps.filter(identity).filter(({ geometry: { coordinates: [ points ] } }) => {
+    let contained = false
+    features.forEach(feature => {
+      contained = contained || polygonWithin(points, feature.geometry.coordinates[0]) ? true : false
+    })
+    return contained
+  })
+
   plot(map)
   document.dispatchEvent(new CustomEvent('search', { detail: map }))
 }
@@ -127,11 +137,18 @@ tools[DRAW_TOOL] = {
       const feature = reduceFeatures(unions)
       let unionFeature = makeFeature({
         polygon: reducePolygons(featureToPolygons(feature, map)),
-        inners: gaps,
         map
       })
-      gaps.forEach(gap => {
+      gaps.forEach((gap, index) => {
         const { geometry: { coordinates: [ coordinates ] } } = gap
+        // if these intersect, it means the user drew a shape that was intended to change an erased area
+        if (intersect(gap, drawnFeature)) {
+          delete gaps[index]
+          gap = difference(gap, drawnFeature)
+          gaps.push(gap)
+          unionFeature = difference(unionFeature, gap)
+        }
+        gaps = gaps.filter(identity)
         feature.geometry.coordinates.slice(1).forEach(unionCoordinates => {
           if (equal(coordinates, unionCoordinates)) {
             unionFeature = difference(unionFeature, gap)
