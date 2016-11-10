@@ -23,7 +23,6 @@ const container = document.getElementById('map-container')
 const context = canvas.getContext('2d')
 let points = []
 let features = []
-let gaps = []
 
 function setCanvasHeight() {
   const box = container.getBoundingClientRect()
@@ -81,16 +80,6 @@ function redrawMap(map) {
       })
     })
     return !contained
-  })
-  gaps = gaps.filter(identity)
-
-  // erase gaps that are *not* inside another feature
-  gaps = gaps.filter(({ geometry: { coordinates: [ points ] } }) => {
-    let contained = false
-    features.forEach(feature => {
-      contained = contained || polygonWithin(points, feature.geometry.coordinates[0]) ? true : false
-    })
-    return contained
   })
   plot(map)
   document.dispatchEvent(new CustomEvent('search', { detail: map }))
@@ -154,8 +143,6 @@ function erase(gap) {
   if (!gap) return
   features.forEach((feature, index) => {
     if (intersect(gap, feature)) {
-      gaps.push(gap)
-      gaps = gaps.filter(identity)
       features[index] = difference(feature, gap)
     }
   })
