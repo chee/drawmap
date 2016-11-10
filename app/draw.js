@@ -67,7 +67,9 @@ function plot(map) {
 
 function redrawMap(map) {
   clear(map)
-  features = features.filter(identity).filter(({ geometry: { coordinates: [ points ] } }) => {
+  features = features.filter(identity)
+  // erase features that are inside another feature
+  features = features.filter(({ geometry: { coordinates: [ points ] } }) => {
     let contained = false
     features.forEach(feature => {
       contained = contained || polygonWithin(points, feature.geometry.coordinates[0]) ? true : false
@@ -76,12 +78,19 @@ function redrawMap(map) {
           contained = false
         }
       })
-      // console.log(polygonWithin(points, featurePoints), points, featurePoints)
     })
     return !contained
   })
   gaps = gaps.filter(identity)
-  //gaps = containsAny(gaps.filter(identity), features)
+
+  // erase gaps that are *not* inside another feature
+  gaps = gaps.filter(({ geometry: { coordinates: [ points ] } }) => {
+    let contained = false
+    features.forEach(feature => {
+      contained = contained || polygonWithin(points, feature.geometry.coordinates[0]) ? true : false
+    })
+    return contained
+  })
   plot(map)
   document.dispatchEvent(new CustomEvent('search', { detail: map }))
 }
