@@ -65,6 +65,10 @@ export function simplify(points, canvas, width) {
   }
 }
 
+export function equal(polygon1, polygon2) {
+  return new Polygon(polygon1).equal(new Polygon(polygon2))
+}
+
 export function within(inner, outer) {
   return new Polygon(outer).containsPolygon(new Polygon(inner))
 }

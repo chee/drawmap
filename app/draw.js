@@ -3,7 +3,8 @@ import hexToRgba from 'hex-rgba'
 import {
   simplify,
   within as polygonWithin,
-  reduce as reducePolygons
+  reduce as reducePolygons,
+  equal
 } from './shape'
 import {
   point as turfPoint,
@@ -23,6 +24,7 @@ const container = document.getElementById('map-container')
 const context = canvas.getContext('2d')
 let points = []
 let features = []
+let gaps = []
 
 function setCanvasHeight() {
   const box = container.getBoundingClientRect()
@@ -32,7 +34,7 @@ function setCanvasHeight() {
 window.addEventListener('resize', setCanvasHeight)
 setCanvasHeight()
 
-function makeFeature({map, polygon}) {
+function makeFeature({map, polygon, inners}) {
   const coordinates = polygon.map(point => {
     return pixelToCoordinate(point, map)
   }).map(point => point && [
@@ -41,8 +43,9 @@ function makeFeature({map, polygon}) {
   ]).filter(identity)
   coordinates.push(coordinates[0])
   if (coordinates.length < 4) return null
+  inners = inners || []
   try {
-    return turfPolygon([coordinates])
+    return turfPolygon([coordinates, ...inners])
   } catch(error) {
     console.error(error)
     return null
@@ -93,7 +96,9 @@ function makeUnions(drawnFeature) {
   features.forEach((feature, index) => {
     if (intersect(feature, drawnFeature)) {
       delete features[index]
-      unions.push(union(feature, drawnFeature))
+      const unionFeature = union(feature, drawnFeature)
+      //unionFeature.geometry.coordinates
+      unions.push(unionFeature)
     }
   })
   features = features.filter(identity)
@@ -120,8 +125,11 @@ tools[DRAW_TOOL] = {
     if (!drawnFeature) return
     const unions = makeUnions(drawnFeature)
     if (unions.length) {
-      const unionFeature = reduceFeatures(unions)
-      console.log(unionFeature.geometry.coordinates)
+      const unionFeature = makeFeature({
+        polygon: reducePolygons(featureToPolygons(reduceFeatures(unions), map)),
+        inners: gaps,
+        map
+      })
       features.push(unionFeature)
     } else {
       features.push(drawnFeature)
@@ -143,6 +151,8 @@ function erase(gap) {
   if (!gap) return
   features.forEach((feature, index) => {
     if (intersect(gap, feature)) {
+      gaps.push(gap)
+      gaps = gaps.filter(identity)
       features[index] = difference(feature, gap)
     }
   })
