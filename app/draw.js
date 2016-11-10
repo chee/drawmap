@@ -164,11 +164,11 @@ tools[DRAW_TOOL] = {
 function erase(gap) {
   if (!gap) return
   features.forEach((feature, index) => {
-    const newGap = intersect(gap, feature)
-    if (!newGap) return;
-    gaps.push(newGap)
-    const newFeature = difference(feature, newGap)
-    newFeature && (features[index] = newFeature)
+    if (intersect(gap, feature)) {
+      gaps.push(gap)
+      gaps = gaps.filter(identity)
+      features[index] = difference(feature, gap)
+    }
   })
 }
 
