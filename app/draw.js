@@ -141,33 +141,31 @@ tools[DRAW_TOOL] = {
     }
 
     const featureIndex = features.length - 1
+    let newFeature = features[featureIndex]
     gaps.forEach((gap, index) => {
       if (!(drawnFeature && gap)) return
-
-      // if these intersect, it means the user drew a shape that was intended to change the shape of an erased area
+      // if these intersect, it means the user drew a shape that was intended to change an erased area
       if (intersect(drawnFeature, gap)) {
-        gaps[index] = difference(gap, drawnFeature)
-        try {
-          gaps[index] && (features[featureIndex] = difference(features[featureIndex], gaps[index]))
-        } catch(error) {
-          console.error('errur', error)
-        }
-      } else if (intersect(features[featureIndex], gap)) {
-        features[featureIndex] = difference(features[featureIndex], gap)
+        delete gaps[index]
+        gap = difference(gap, drawnFeature)
+        gaps.push(gap)
       }
     })
     redrawMap(map)
   },
   point({point, map}) {
-
+    window.google.maps.event.trigger(map, 'click', {
+      stop: null,
+      latLng: pixelToCoordinate(point, map)
+    })
   }
 }
 
 function erase(gap) {
+  if (!gap) return
   features.forEach((feature, index) => {
-    if (!gap) return
     const newGap = intersect(gap, feature)
-    if (!newGap) return
+    if (!newGap) return;
     gaps.push(newGap)
     const newFeature = difference(feature, newGap)
     newFeature && (features[index] = newFeature)
@@ -179,10 +177,9 @@ tools[ERASE_TOOL] = {
   width: 30,
   up({polygon, map}) {
     const gap = makeFeature({
-      map, polygon
+      polygon, map
     })
     if (!gap) return
-    console.log('gap', gap)
     erase(gap)
     redrawMap(map)
   },
