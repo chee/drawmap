@@ -11,7 +11,8 @@ import {
   featureCollection,
   intersect,
   union,
-  difference
+  difference,
+  within
 } from '@turf/turf'
 
 export const DRAW_TOOL = 'draw'
@@ -130,11 +131,8 @@ tools[DRAW_TOOL] = {
     if (!drawnFeature) return
     const unions = makeUnions(drawnFeature)
     if (unions.length) {
-      const polygon = reducePolygons(featureToPolygons(reduceFeatures(unions), map))
-      const unionFeature = makeFeature({
-        map,
-        polygon
-      })
+      const unionFeature = reduceFeatures(unions)
+      console.log(unionFeature.geometry.coordinates)
       features.push(unionFeature)
     } else {
       features.push(drawnFeature)
@@ -142,15 +140,6 @@ tools[DRAW_TOOL] = {
 
     const featureIndex = features.length - 1
     let newFeature = features[featureIndex]
-    gaps.forEach((gap, index) => {
-      if (!(drawnFeature && gap)) return
-      // if these intersect, it means the user drew a shape that was intended to change an erased area
-      if (intersect(drawnFeature, gap)) {
-        delete gaps[index]
-        gap = difference(gap, drawnFeature)
-        gaps.push(gap)
-      }
-    })
     redrawMap(map)
   },
   point({point, map}) {
