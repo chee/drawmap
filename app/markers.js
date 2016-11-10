@@ -24,7 +24,6 @@ document.addEventListener('search', event => {
     if (containedPoints && containedPoints.features.length) {
       groupMarkers(containedPoints.features.map(makeMarker))
         .forEach(marker => {
-          console.log(marker)
           markers.push(marker)
           marker.setMap(map)
         })

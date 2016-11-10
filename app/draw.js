@@ -6,6 +6,7 @@ import {
   reduce as reducePolygons,
   equal
 } from './shape'
+
 import {
   point as turfPoint,
   polygon as turfPolygon,
@@ -34,7 +35,7 @@ function setCanvasHeight() {
 window.addEventListener('resize', setCanvasHeight)
 setCanvasHeight()
 
-function makeFeature({map, polygon, inners}) {
+function makeFeature({map, polygon}) {
   const coordinates = polygon.map(point => {
     return pixelToCoordinate(point, map)
   }).map(point => point && [
@@ -43,9 +44,8 @@ function makeFeature({map, polygon, inners}) {
   ]).filter(identity)
   coordinates.push(coordinates[0])
   if (coordinates.length < 4) return null
-  inners = inners || []
   try {
-    return turfPolygon([coordinates, ...inners])
+    return turfPolygon([coordinates])
   } catch(error) {
     console.error(error)
     return null
@@ -97,7 +97,6 @@ function makeUnions(drawnFeature) {
     if (intersect(feature, drawnFeature)) {
       delete features[index]
       const unionFeature = union(feature, drawnFeature)
-      //unionFeature.geometry.coordinates
       unions.push(unionFeature)
     }
   })
@@ -125,10 +124,19 @@ tools[DRAW_TOOL] = {
     if (!drawnFeature) return
     const unions = makeUnions(drawnFeature)
     if (unions.length) {
-      const unionFeature = makeFeature({
-        polygon: reducePolygons(featureToPolygons(reduceFeatures(unions), map)),
+      const feature = reduceFeatures(unions)
+      let unionFeature = makeFeature({
+        polygon: reducePolygons(featureToPolygons(feature, map)),
         inners: gaps,
         map
+      })
+      gaps.forEach(gap => {
+        const { geometry: { coordinates: [ coordinates ] } } = gap
+        feature.geometry.coordinates.slice(1).forEach(unionCoordinates => {
+          if (equal(coordinates, unionCoordinates)) {
+            unionFeature = difference(unionFeature, gap)
+          }
+        })
       })
       features.push(unionFeature)
     } else {

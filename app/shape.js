@@ -66,7 +66,7 @@ export function simplify(points, canvas, width) {
 }
 
 export function equal(polygon1, polygon2) {
-  return new Polygon(polygon1).equal(new Polygon(polygon2))
+  return (new Polygon(polygon1)).rewind().equal((new Polygon(polygon2)).rewind())
 }
 
 export function within(inner, outer) {
