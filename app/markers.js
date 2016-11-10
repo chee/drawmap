@@ -22,9 +22,9 @@ document.addEventListener('search', event => {
     const containedPoints = within(points, geoJson)
 
     if (containedPoints && containedPoints.features.length) {
-      containedPoints.features
-        .map(makeMarker)
+      groupMarkers(containedPoints.features.map(makeMarker))
         .forEach(marker => {
+          console.log(marker)
           markers.push(marker)
           marker.setMap(map)
         })
@@ -49,9 +49,24 @@ function makeMarker(point) {
   const icon = `//propertynews.com/${point.properties.Icon || '/images/sitefiles/map-icons/map-icon.png'}`
   const [lng, lat] = point.geometry.coordinates
 
-  return new window.google.maps.Marker({
+  const marker = new window.google.maps.Marker({
     position: { lng, lat },
     title: point.properties.Title,
-    icon
+    icon,
+    properties: point.properties
   })
+
+  marker.addListener('click', event => {
+    marker.properties.event = event
+    markerClicked(marker)
+  })
+  return marker
+}
+
+function markerClicked(marker) {
+  console.log(marker)
+}
+
+function groupMarkers(markers) {
+  return markers
 }
