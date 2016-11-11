@@ -28,13 +28,13 @@ let features = []
 
 const tools = {}
 
-function setCanvasHeight() {
+function setCanvasSize() {
   const box = container.getBoundingClientRect()
-  canvas.setAttribute('width', box.width)
+  canvas.setAttribute('width', `${parseInt(box.width) + 20}px`)
   canvas.setAttribute('height', box.height)
 }
-window.addEventListener('resize', setCanvasHeight)
-setCanvasHeight()
+window.addEventListener('resize', setCanvasSize)
+setCanvasSize()
 
 function makeFeature({map, polygon}) {
   const coordinates = polygon.map(point => {
@@ -76,13 +76,24 @@ function redrawMap(map) {
   clear(map)
   features = features.filter(selectFeature)
 
-  // remove gaps that are not inside a feature
+
   features.forEach(featureObject => {
     const {feature} = featureObject
+    // remove gaps that are not inside a feature
     featureObject.gaps = featureObject.gaps.filter(({ geometry: { coordinates: [ points ] } }) => {
       return polygonWithin(points, feature.geometry.coordinates[0])
     })
+
+    // remove features that are entirely contained by another feature (not subfeatures though, lol)
+    features.forEach(({feature: { geometry: { coordinates: [ points ] } }}, index) => {
+      if (polygonWithin(points, feature.geometry.coordinates[0])) {
+        delete features[index]
+      }
+    })
   })
+
+  features = features.filter(identity)
+
 
   plot(map)
   document.dispatchEvent(new CustomEvent('search', { detail: map }))
@@ -139,10 +150,8 @@ function makeUnionFeatureObject({drawnFeature, unions, map}) {
     // if this intersect is in place, the user intended to change the shape of an erased area
     const gapIntersect = intersect(gap, drawnFeature)
     if (gapIntersect) {
-      //delete unionFeatureObject.gaps[index]
       unionFeatureObject.gaps[index] = difference(gap, drawnFeature)
     }
-    //unionFeatureObject.feature = difference(unionFeatureObject.feature, gap)
   })
 
   return unionFeatureObject
@@ -230,7 +239,7 @@ export function drawline({color, width, display = true}) {
   context.lineCap = 'round'
   context.lineWidth = width
   for (let index = 0; index < points.length; index += 1) {
-    context.lineTo(points[index].x - (display ? width / 2 : 0), points[index].y)
+    context.lineTo(points[index].x, points[index].y)
   }
   context.stroke()
 }
