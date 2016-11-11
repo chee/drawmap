@@ -139,9 +139,10 @@ function makeUnionFeatureObject({drawnFeature, unions, map}) {
     // if this intersect is in place, the user intended to change the shape of an erased area
     const gapIntersect = intersect(gap, drawnFeature)
     if (gapIntersect) {
+      //delete unionFeatureObject.gaps[index]
       unionFeatureObject.gaps[index] = difference(gap, drawnFeature)
     }
-    unionFeatureObject.feature = difference(unionFeatureObject.feature, gap)
+    //unionFeatureObject.feature = difference(unionFeatureObject.feature, gap)
   })
 
   return unionFeatureObject
@@ -188,16 +189,15 @@ function erase(gap) {
   if (!gap) return
   features.forEach((featureObject, index) => {
     const {feature, subfeatures, gaps} = featureObject
-    gap = intersect(gap, feature)
-    if (gap) {
-      if (polygonWithin(gap.geometry.coordinates[0], feature.geometry.coordinates[0])) {
-        featureObject.gaps.push(gap)
+    const gapIntersect = intersect(gap, feature)
+    if (gapIntersect) {
+      if (polygonWithin(gapIntersect.geometry.coordinates[0], feature.geometry.coordinates[0])) {
+        featureObject.gaps.push(gapIntersect)
       } else {
-        delete features[index]
-        features.push(makeFeatureObject({
-          feature: difference(feature, gap),
+        features[index] = makeFeatureObject({
+          feature: difference(featureObject.feature, gap),
           subfeatures, gaps
-        }))
+        })
       }
     }
   })
