@@ -13,9 +13,10 @@ import {
   featureCollection,
   intersect,
   union,
-  difference,
-  within
+  difference
 } from '@turf/turf'
+
+import flatten from 'turf-flatten'
 
 export const DRAW_TOOL = 'draw'
 export const ERASE_TOOL = 'erase'
@@ -72,28 +73,54 @@ function plot(map) {
   }
 }
 
+function within(inner, outer) {
+  let contained = false
+  const { geometry: { coordinates: [ innerPoints ] } } = inner
+  const { geometry: { coordinates } } = outer
+  coordinates.forEach(outerPoints => {
+    contained = contained || polygonWithin(innerPoints, outerPoints)
+  })
+  return contained
+}
+
+function flattenMulti(featureObject, map) {
+  const {feature, subfeatures, gaps} = featureObject
+  features = features.concat(flatten(feature.geometry).features.map(feature => makeFeatureObject({
+      feature: {
+        geometry: feature,
+        type: 'Feature'
+      },
+      subfeatures,
+      gaps
+    })
+  ))
+}
+
 function redrawMap(map) {
   clear(map)
-  features = features.filter(selectFeature)
+  features = features.filter(identity).filter(selectFeature)
+  const MultiPolygonException = Symbol.for('MultiPolygonException')
 
-
-  features.forEach(featureObject => {
+  features.forEach((featureObject, index) => {
+    if (featureObject.feature.geometry.type == 'MultiPolygon') {
+      delete features[index]
+      flattenMulti(featureObject, map)
+    }
     const {feature} = featureObject
     // remove gaps that are not inside a feature
-    featureObject.gaps = featureObject.gaps.filter(({ geometry: { coordinates: [ points ] } }) => {
-      return polygonWithin(points, feature.geometry.coordinates[0])
+    featureObject.gaps = featureObject.gaps.filter(gap => {
+      return within(gap, feature)
     })
 
     // remove features that are entirely contained by another feature (not subfeatures though, lol)
-    features.forEach(({feature: { geometry: { coordinates: [ points ] } }}, index) => {
-      if (polygonWithin(points, feature.geometry.coordinates[0])) {
+    features.forEach((otherFeature, index) => {
+      if (within(otherFeature.feature, feature)) {
         delete features[index]
       }
     })
   })
 
   features = features.filter(identity)
-
 
   plot(map)
   document.dispatchEvent(new CustomEvent('search', { detail: map }))
@@ -165,10 +192,10 @@ function makeFeatureObject({feature, subfeatures, gaps}) {
   }
 }
 
-
 tools[DRAW_TOOL] = {
   color: '#ff2a50',
   width: 20,
+  // called when someone lifts the pen after drawing a shape in draw mode
   up({polygon, map}) {
     const drawnFeature = makeFeature({
       map, polygon
@@ -180,9 +207,18 @@ tools[DRAW_TOOL] = {
     if (unionFeatureObject) {
       features.push(unionFeatureObject)
     } else {
-      features.push(makeFeatureObject({
+      // this is either a new feature, or a subfeature
+      const featureObject = makeFeatureObject({
         feature: drawnFeature
-      }))
+      })
+      let isSubfeature = false
+      features.forEach(otherFeatureObject => {
+        if (within(featureObject.feature, otherFeatureObject.feature)) {
+          isSubfeature = true
+          otherFeatureObject.subfeatures.push(featureObject)
+        }
+      })
+      isSubfeature || features.push(featureObject)
     }
     redrawMap(map)
   },
@@ -200,12 +236,13 @@ function erase(gap) {
     const {feature, subfeatures, gaps} = featureObject
     const gapIntersect = intersect(gap, feature)
     if (gapIntersect) {
-      if (polygonWithin(gapIntersect.geometry.coordinates[0], feature.geometry.coordinates[0])) {
+      if (within(gapIntersect, feature)) {
         featureObject.gaps.push(gapIntersect)
       } else {
         features[index] = makeFeatureObject({
           feature: difference(featureObject.feature, gap),
-          subfeatures, gaps
+          subfeatures,
+          gaps
         })
       }
     }
@@ -215,6 +252,7 @@ function erase(gap) {
 tools[ERASE_TOOL] = {
   color: '#3399ff',
   width: 30,
+  // called when someone lifts the pen after drawing a shape in erase mode
   up({polygon, map}) {
     const gap = makeFeature({
       polygon, map
