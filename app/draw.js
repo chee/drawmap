@@ -25,7 +25,8 @@ const container = document.getElementById('map-container')
 const context = canvas.getContext('2d')
 let points = []
 let features = []
-let gaps = []
+
+const tools = {}
 
 function setCanvasHeight() {
   const box = container.getBoundingClientRect()
@@ -42,12 +43,13 @@ function makeFeature({map, polygon}) {
     point.lng(),
     point.lat()
   ]).filter(identity)
+
+  // make it meet back up at the start
   coordinates.push(coordinates[0])
   if (coordinates.length < 4) return null
   try {
     return turfPolygon([coordinates])
   } catch(error) {
-    console.error(error)
     return null
   }
 }
@@ -59,22 +61,27 @@ function clear(map) {
 }
 
 const identity = thing => thing
+const selectFeature = featureObject => featureObject.feature
 
 function plot(map) {
   try {
-    map.data.addGeoJson(featureCollection(features))
+    map.data.addGeoJson(featureCollection(features.map(selectFeature)))
   } catch(error) {
+    debugger
     console.error('fuck: ', error)
   }
 }
 
 function redrawMap(map) {
   clear(map)
-  features = features.filter(identity)
+  features = features.filter(selectFeature)
+
   // erase features that are inside another feature
-  features = features.filter(({ geometry: { coordinates: [ points ] } }) => {
+  features = features.filter(selectFeature).filter(({feature}) => {
+    const { geometry: { coordinates: [ points ] } } = feature
     let contained = false
-    features.forEach(feature => {
+    features.map(selectFeature).forEach(feature => {
+      if (!feature) return
       contained = contained || polygonWithin(points, feature.geometry.coordinates[0]) ? true : false
       feature.geometry.coordinates.slice(1).forEach((gapPoints, index) => {
         if (polygonWithin(points, gapPoints)) {
@@ -82,36 +89,12 @@ function redrawMap(map) {
         }
       })
     })
-    return !contained
-  })
 
-  // erase gaps that are *not* inside another feature
-  gaps = gaps.filter(identity).filter(({ geometry: { coordinates: [ points ] } }) => {
-    let contained = false
-    features.forEach(feature => {
-      contained = contained || polygonWithin(points, feature.geometry.coordinates[0]) ? true : false
-    })
-    return contained
+    return !contained
   })
 
   plot(map)
   document.dispatchEvent(new CustomEvent('search', { detail: map }))
-}
-
-const tools = {}
-
-function makeUnions(drawnFeature) {
-  const unions = []
-  features = features.filter(identity)
-  features.forEach((feature, index) => {
-    if (intersect(feature, drawnFeature)) {
-      delete features[index]
-      const unionFeature = union(feature, drawnFeature)
-      unions.push(unionFeature)
-    }
-  })
-  features = features.filter(identity)
-  return unions
 }
 
 function reduceFeatures(features) {
@@ -124,6 +107,47 @@ function featureToPolygons(feature, map) {
   ))
 }
 
+function getUnions(drawnFeature) {
+  const unions = {
+    indexes: [],
+    features: []
+  }
+  features.forEach((featureObject, index) => {
+    const feature = featureObject.feature
+    if (intersect(feature, drawnFeature)) {
+      unions.indexes.push(index)
+      unions.features.push(union(feature, drawnFeature))
+    }
+  })
+  return unions
+}
+
+function makeUnionFeatureObject({unions, map}) {
+  if (!(unions.indexes && unions.indexes.length)) return null
+  const unionFeature = makeFeature({
+    polygon: reducePolygons(featureToPolygons(reduceFeatures(unions.features), map)),
+    map
+  })
+  const unionFeatureObject = {
+    feature: unionFeature,
+    subfeatures: [],
+    gaps: []
+  }
+  unions.indexes.forEach(index => {
+    const featureObject = features[index]
+    delete features[index]
+    unionFeatureObject.subfeatures = unionFeatureObject.subfeatures.concat(featureObject.subfeatures)
+    unionFeatureObject.gaps = unionFeatureObject.gaps.concat(featureObject.gaps)
+  })
+
+  unionFeatureObject.gaps.forEach(gap => {
+    unionFeatureObject.feature = difference(unionFeatureObject.feature, gap)
+  })
+
+  return unionFeatureObject
+}
+
+
 tools[DRAW_TOOL] = {
   color: '#ff2a50',
   width: 20,
@@ -132,44 +156,18 @@ tools[DRAW_TOOL] = {
       map, polygon
     })
     if (!drawnFeature) return
-    const unions = makeUnions(drawnFeature)
-    if (unions.length) {
-      const feature = reduceFeatures(unions)
-      let unionFeature = makeFeature({
-        polygon: reducePolygons(featureToPolygons(feature, map)),
-        map
-      })
-      gaps.forEach((gap, index) => {
-        const { geometry: { coordinates: [ coordinates ] } } = gap
-        // if these intersect, it means the user drew a shape that was intended to change an erased area
-        if (intersect(gap, drawnFeature)) {
-          // delete gaps[index]
-          //gap = difference(gap, drawnFeature)
-          //gaps.push(gap)
-          unionFeature = difference(unionFeature, gap)
-        }
-        feature.geometry.coordinates.slice(1).forEach(unionCoordinates => {
-          if (equal(coordinates, unionCoordinates)) {
-            unionFeature = difference(unionFeature, gap)
-          }
-        })
-      })
-      gaps = gaps.filter(identity)
-      features.push(unionFeature)
+    features = features.filter(selectFeature)
+    const unions = getUnions(drawnFeature)
+    const unionFeatureObject = makeUnionFeatureObject({unions, map})
+    if (unionFeatureObject) {
+      features.push(unionFeatureObject)
     } else {
-      let contained = false
-      gaps.forEach((gap, index) => {
-        const { geometry: { coordinates: [ coordinates ] } } = gap
-        const { geometry: { coordinates: [ drawnCoordinates ] } } = drawnFeature
-        if (polygonWithin(drawnCoordinates, coordinates)) {
-          contained = true
-        }
+      features.push({
+        feature: drawnFeature,
+        subfeatures: [],
+        gaps: []
       })
-      contained || features.push(drawnFeature)
     }
-
-    const featureIndex = features.length - 1
-    let newFeature = features[featureIndex]
     redrawMap(map)
   },
   point({point, map}) {
@@ -182,11 +180,12 @@ tools[DRAW_TOOL] = {
 
 function erase(gap) {
   if (!gap) return
-  features.forEach((feature, index) => {
-    if (intersect(gap, feature)) {
-      gaps.push(gap)
-      gaps = gaps.filter(identity)
-      features[index] = difference(feature, gap)
+  features.forEach((featureObject, index) => {
+    const {feature} = featureObject
+    gap = intersect(gap, feature)
+    if (gap) {
+      featureObject.gaps.push(gap)
+      featureObject.feature = difference(feature, gap)
     }
   })
 }
@@ -203,13 +202,6 @@ tools[ERASE_TOOL] = {
     redrawMap(map)
   },
   point({point, map}) {
-    // point = makePoint({point, map})
-    // features.forEach((feature, index) => {
-    //   if (inside(point, feature)) {
-    //     delete features[index]
-    //   }
-    // })
-    // redrawMap(map)
   }
 }
 
