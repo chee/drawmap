@@ -143,9 +143,9 @@ tools[DRAW_TOOL] = {
         const { geometry: { coordinates: [ coordinates ] } } = gap
         // if these intersect, it means the user drew a shape that was intended to change an erased area
         if (intersect(gap, drawnFeature)) {
-          delete gaps[index]
-          gap = difference(gap, drawnFeature)
-          gaps.push(gap)
+          // delete gaps[index]
+          //gap = difference(gap, drawnFeature)
+          //gaps.push(gap)
           unionFeature = difference(unionFeature, gap)
         }
         feature.geometry.coordinates.slice(1).forEach(unionCoordinates => {
@@ -160,7 +160,8 @@ tools[DRAW_TOOL] = {
       let contained = false
       gaps.forEach((gap, index) => {
         const { geometry: { coordinates: [ coordinates ] } } = gap
-        if (polygonWithin(drawnFeature.geometry.coordinates[0], coordinates)) {
+        const { geometry: { coordinates: [ drawnCoordinates ] } } = drawnFeature
+        if (polygonWithin(drawnCoordinates, coordinates)) {
           contained = true
         }
       })
