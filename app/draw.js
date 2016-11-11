@@ -148,16 +148,23 @@ tools[DRAW_TOOL] = {
           gaps.push(gap)
           unionFeature = difference(unionFeature, gap)
         }
-        gaps = gaps.filter(identity)
         feature.geometry.coordinates.slice(1).forEach(unionCoordinates => {
           if (equal(coordinates, unionCoordinates)) {
             unionFeature = difference(unionFeature, gap)
           }
         })
       })
+      gaps = gaps.filter(identity)
       features.push(unionFeature)
     } else {
-      features.push(drawnFeature)
+      let contained = false
+      gaps.forEach((gap, index) => {
+        const { geometry: { coordinates: [ coordinates ] } } = gap
+        if (polygonWithin(drawnFeature.geometry.coordinates[0], coordinates)) {
+          contained = true
+        }
+      })
+      contained || features.push(drawnFeature)
     }
 
     const featureIndex = features.length - 1
