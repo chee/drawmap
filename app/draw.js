@@ -107,9 +107,10 @@ function redrawMap(map) {
       flattenMulti(featureObject, map)
     }
     const {feature} = featureObject
+
     // remove gaps that are not inside a feature
     featureObject.gaps = featureObject.gaps.filter(gap => {
-      return within(gap, feature)
+      return gap && feature && within(gap, feature)
     })
 
     // remove features that are entirely contained by another feature (not subfeatures though, lol)
@@ -239,6 +240,7 @@ function erase(gap) {
       if (within(gapIntersect, feature)) {
         featureObject.gaps.push(gapIntersect)
       } else {
+        gaps.push(gap)
         features[index] = makeFeatureObject({
           feature: difference(featureObject.feature, gap),
           subfeatures,
