@@ -235,10 +235,17 @@ function erase(gap) {
   if (!gap) return
   features.forEach((featureObject, index) => {
     const {feature, subfeatures, gaps} = featureObject
-    const gapIntersect = intersect(gap, feature)
-    if (gapIntersect) {
-      if (within(gapIntersect, feature)) {
-        featureObject.gaps.push(gapIntersect)
+    const theIntersect = intersect(gap, feature)
+    gaps.forEach((otherGap, index) => {
+      const gapIntersect = intersect(gap, otherGap)
+      if (gapIntersect) {
+        gap = union(gap, otherGap)
+        gaps[index] = gap
+      }
+    })
+    if (theIntersect) {
+      if (within(theIntersect, feature)) {
+        featureObject.gaps.push(theIntersect)
       } else {
         gaps.push(gap)
         features[index] = makeFeatureObject({
